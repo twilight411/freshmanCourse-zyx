@@ -1,0 +1,324 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] flow-config                                                        [jar]
+[INFO] flow                                                               [pom]
+[INFO] flow-remote                                                        [jar]
+[INFO] flow-route                                                         [jar]
+[INFO] flow-model                                                         [jar]
+[INFO] flow-core                                                          [jar]
+[INFO] flow-test                                                          [jar]
+[INFO] 
+[INFO] ---------------------< cc.eamon.open:flow-config >----------------------
+[INFO] Building flow-config 0.4.14                                        [1/7]
+[INFO]   from flow-config\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ flow-config ---
+[INFO] Deleting D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-config\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ flow-config ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-config\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ flow-config ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 21 source files to D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-config\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ flow-config ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-config\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ flow-config ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ flow-config ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] -------------------------< cc.eamon.open:flow >-------------------------
+[INFO] Building flow 0.4.14                                               [2/7]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ flow ---
+[INFO] 
+[INFO] ---------------------< cc.eamon.open:flow-remote >----------------------
+[INFO] Building flow-remote 0.4.14                                        [3/7]
+[INFO]   from flow-remote\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ flow-remote ---
+[INFO] Deleting D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-remote\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ flow-remote ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-remote\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ flow-remote ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-remote\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ flow-remote ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-remote\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ flow-remote ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ flow-remote ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] ----------------------< cc.eamon.open:flow-route >----------------------
+[INFO] Building flow-route 0.4.14                                         [4/7]
+[INFO]   from flow-route\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ flow-route ---
+[INFO] Deleting D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-route\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ flow-route ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-route\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ flow-route ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 33 source files to D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-route\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ flow-route ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ flow-route ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-route\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ flow-route ---
+[INFO] 
+[INFO] ----------------------< cc.eamon.open:flow-model >----------------------
+[INFO] Building flow-model 0.4.14                                         [5/7]
+[INFO]   from flow-model\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ flow-model ---
+[INFO] Deleting D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-model\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ flow-model ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-model\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ flow-model ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 24 source files to D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-model\target\classes
+[INFO] /D:/Users/zyx/Documents/ChatGPT/新人项目-CCF/submission/freshmanCourse-zyx/.work/rsi-flow-authenticated/flow-model/src/main/java/cc/eamon/open/flow/model/enums/ParseEnums.java: 某些输入文件使用了未经检查或不安全的操作。
+[INFO] /D:/Users/zyx/Documents/ChatGPT/新人项目-CCF/submission/freshmanCourse-zyx/.work/rsi-flow-authenticated/flow-model/src/main/java/cc/eamon/open/flow/model/enums/ParseEnums.java: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ flow-model ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-model\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ flow-model ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ flow-model ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] ----------------------< cc.eamon.open:flow-core >-----------------------
+[INFO] Building flow-core 0.4.14                                          [6/7]
+[INFO]   from flow-core\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ flow-core ---
+[INFO] Deleting D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-core\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ flow-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-core\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ flow-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 104 source files to D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-core\target\classes
+[INFO] /D:/Users/zyx/Documents/ChatGPT/新人项目-CCF/submission/freshmanCourse-zyx/.work/rsi-flow-authenticated/flow-core/src/main/java/cc/eamon/open/flow/core/stereotype/support/defination/LocalJavaCode.java: D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-core\src\main\java\cc\eamon\open\flow\core\stereotype\support\defination\LocalJavaCode.java使用或覆盖了已过时的 API。
+[INFO] /D:/Users/zyx/Documents/ChatGPT/新人项目-CCF/submission/freshmanCourse-zyx/.work/rsi-flow-authenticated/flow-core/src/main/java/cc/eamon/open/flow/core/stereotype/support/defination/LocalJavaCode.java: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+[INFO] /D:/Users/zyx/Documents/ChatGPT/新人项目-CCF/submission/freshmanCourse-zyx/.work/rsi-flow-authenticated/flow-core/src/main/java/cc/eamon/open/flow/core/monitor/MonitorBus.java: D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-core\src\main\java\cc\eamon\open\flow\core\monitor\MonitorBus.java使用了未经检查或不安全的操作。
+[INFO] /D:/Users/zyx/Documents/ChatGPT/新人项目-CCF/submission/freshmanCourse-zyx/.work/rsi-flow-authenticated/flow-core/src/main/java/cc/eamon/open/flow/core/monitor/MonitorBus.java: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ flow-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-core\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ flow-core ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ flow-core ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] ----------------------< cc.eamon.open:flow-test >-----------------------
+[INFO] Building flow-test 0.4.14                                          [7/7]
+[INFO]   from flow-test\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ flow-test ---
+[INFO] Deleting D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-test\target
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.12:prepare-agent (default) @ flow-test ---
+[INFO] Skipping JaCoCo execution because property jacoco.skip is set.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ flow-test ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-test\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ flow-test ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ flow-test ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 19 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ flow-test ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 27 source files to D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-test\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.2.5:test (default-test) @ flow-test ---
+[INFO] Using auto detected provider org.apache.maven.surefire.testng.TestNGProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running TestSuite
+22:21:20.733 [main] INFO cc.eamon.open.flow.core.context.pipeline.ConfigLoadPipeline - 执行ConfigLoadPipeline组装过程
+22:21:21.011 [main] INFO cc.eamon.open.flow.core.stereotype.support.load.JarLoader - no protocol: f
+22:21:21.011 [main] INFO cc.eamon.open.flow.core.context.pipeline.CodeLoadPipeline - 执行CodeLoadPipeline组装过程
+22:21:21.234 [main] WARN org.apache.velocity.deprecation - configuration key 'runtime.log.invalid.references' has been deprecated in favor of 'runtime.log.log_invalid_references'
+22:21:21.236 [main] DEBUG org.apache.velocity - Initializing Velocity, Calling init()...
+22:21:21.236 [main] DEBUG org.apache.velocity - Starting Apache Velocity v2.2
+22:21:21.241 [main] DEBUG org.apache.velocity - Default Properties resource: org/apache/velocity/runtime/defaults/velocity.properties
+22:21:21.256 [main] DEBUG org.apache.velocity - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.StringResourceLoader
+22:21:21.259 [main] DEBUG org.apache.velocity.loader.string - Creating string repository using class org.apache.velocity.runtime.resource.util.StringResourceRepositoryImpl...
+22:21:21.259 [main] DEBUG org.apache.velocity.loader.string - Default repository encoding is UTF-8
+22:21:21.264 [main] DEBUG org.apache.velocity - initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+22:21:21.269 [main] DEBUG org.apache.velocity - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+22:21:21.271 [main] DEBUG org.apache.velocity - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+22:21:21.272 [main] DEBUG org.apache.velocity - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+22:21:21.274 [main] DEBUG org.apache.velocity - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+22:21:21.274 [main] DEBUG org.apache.velocity - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+22:21:21.277 [main] DEBUG org.apache.velocity - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+22:21:21.278 [main] DEBUG org.apache.velocity - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+22:21:21.279 [main] DEBUG org.apache.velocity - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+22:21:21.301 [main] DEBUG org.apache.velocity.parser - Created '20' parsers.
+22:21:21.326 [main] DEBUG org.apache.velocity.macro - "velocimacro.library.path" is not set. Trying default library: velocimacros.vtl
+22:21:21.326 [main] DEBUG org.apache.velocity.macro - Default library velocimacros.vtl not found. Trying old default library: VM_global_library.vm
+22:21:21.326 [main] DEBUG org.apache.velocity.macro - Old default library VM_global_library.vm not found.
+22:21:21.326 [main] DEBUG org.apache.velocity.macro - allowInline = true: VMs can be defined inline in templates
+22:21:21.326 [main] DEBUG org.apache.velocity.macro - allowInlineToOverride = false: VMs defined inline may NOT replace previous VM definitions
+22:21:21.326 [main] DEBUG org.apache.velocity.macro - allowInlineLocal = false: VMs defined inline will be global in scope if allowed.
+22:21:21.327 [main] DEBUG org.apache.velocity.macro - autoload off: VM system will not automatically reload global library macros
+22:21:21.485 [main] INFO cc.eamon.open.flow.core.context.pipeline.ModelLoadPipeline - 执行ModelLoadPipeline组装过程
+22:21:21.488 [main] INFO cc.eamon.open.flow.model.stereotype.support.load.JarLoader - no protocol: f
+22:21:21.488 [main] INFO cc.eamon.open.flow.core.context.pipeline.FlowAssemblyPipeline - 执行FlowAssemblyPipeline组装过程
+22:21:21.502 [main] INFO cc.eamon.open.flow.core.context.Initializer - 流程配置信息装配完成
+22:21:21.503 [main] INFO cc.eamon.open.flow.core.FlowEngine - 初始化流程引擎完成
+22:21:21.561 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named route in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.565 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named chunk in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.566 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named draft in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.568 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named verify in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+STRUCTURE flow=FLOW_AGENT_LONG input_chars=4097 answer_chars=10 path=[AGENT_ROUTE, AGENT_CHUNK, AGENT_DRAFT, AGENT_VERIFY]
+22:21:21.571 [main] INFO cc.eamon.open.flow.core.FlowEngine - 初始化流程引擎完成
+22:21:21.573 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named route in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.576 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named chunk in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.578 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named draft in cc.eamon.open.flow.code.FlowLongAgentCode executed 1 ms.
+22:21:21.580 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named verify in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+STRUCTURE flow=FLOW_AGENT_LONG input_chars=11000 answer_chars=4091 path=[AGENT_ROUTE, AGENT_CHUNK, AGENT_DRAFT, AGENT_VERIFY]
+22:21:21.582 [main] INFO cc.eamon.open.flow.core.FlowEngine - 初始化流程引擎完成
+22:21:21.584 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named route in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.586 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named shortAnswer in cc.eamon.open.flow.code.FlowLongAgentCode executed 1 ms.
+22:21:21.586 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named verify in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+STRUCTURE flow=FLOW_AGENT_LONG input_chars=4096 answer_chars=10 path=[AGENT_ROUTE, AGENT_SHORT, AGENT_VERIFY]
+22:21:21.589 [main] INFO cc.eamon.open.flow.core.FlowEngine - 初始化流程引擎完成
+22:21:21.590 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named route in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.592 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named chunk in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.594 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named draft in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.595 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named verify in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+STRUCTURE flow=FLOW_AGENT_LONG input_chars=4107 answer_chars=12 path=[AGENT_ROUTE, AGENT_CHUNK, AGENT_DRAFT, AGENT_VERIFY]
+22:21:21.598 [main] INFO cc.eamon.open.flow.core.FlowEngine - 初始化流程引擎完成
+22:21:21.600 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named route in cc.eamon.open.flow.code.FlowLongAgentCode executed 1 ms.
+22:21:21.602 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named chunk in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.602 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named draft in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.603 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named verify in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+STRUCTURE flow=FLOW_AGENT_LONG input_chars=132015 answer_chars=14 path=[AGENT_ROUTE, AGENT_CHUNK, AGENT_DRAFT, AGENT_VERIFY]
+22:21:21.605 [main] INFO cc.eamon.open.flow.core.FlowEngine - 初始化流程引擎完成
+22:21:21.606 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named route in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.607 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named chunk in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.608 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named draft in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.610 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named verify in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+STRUCTURE flow=FLOW_AGENT_LONG input_chars=132000 answer_chars=9 path=[AGENT_ROUTE, AGENT_CHUNK, AGENT_DRAFT, AGENT_VERIFY]
+22:21:21.611 [main] INFO cc.eamon.open.flow.core.FlowEngine - 初始化流程引擎完成
+22:21:21.614 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named route in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.616 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named shortAnswer in cc.eamon.open.flow.code.FlowLongAgentCode executed 1 ms.
+22:21:21.617 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named verify in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+STRUCTURE flow=FLOW_AGENT_LONG input_chars=6 answer_chars=9 path=[AGENT_ROUTE, AGENT_SHORT, AGENT_VERIFY]
+22:21:21.619 [main] INFO cc.eamon.open.flow.core.FlowEngine - 初始化流程引擎完成
+22:21:21.622 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named chunk in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.624 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named draft in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+STRUCTURE flow=FLOW_AGENT_RETRIEVE input_chars=14 answer_chars=13 path=[AGENT_CHUNK, AGENT_DRAFT]
+22:21:21.626 [main] INFO cc.eamon.open.flow.core.FlowEngine - 初始化流程引擎完成
+22:21:21.627 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named route in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.630 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named chunk in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.631 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named draft in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.632 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named verify in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+STRUCTURE flow=FLOW_AGENT_LONG input_chars=5008 answer_chars=9 path=[AGENT_ROUTE, AGENT_CHUNK, AGENT_DRAFT, AGENT_VERIFY]
+22:21:21.636 [main] INFO cc.eamon.open.flow.core.FlowEngine - 初始化流程引擎完成
+22:21:21.637 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named route in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.641 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named chunk in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.642 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named draft in cc.eamon.open.flow.code.FlowLongAgentCode executed 1 ms.
+22:21:21.643 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named verify in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+STRUCTURE flow=FLOW_AGENT_LONG input_chars=132012 answer_chars=11 path=[AGENT_ROUTE, AGENT_CHUNK, AGENT_DRAFT, AGENT_VERIFY]
+22:21:21.644 [main] INFO cc.eamon.open.flow.core.FlowEngine - 初始化流程引擎完成
+22:21:21.645 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named route in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.647 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named shortAnswer in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.647 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named verify in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+STRUCTURE flow=FLOW_AGENT_LONG input_chars=6 answer_chars=9 path=[AGENT_ROUTE, AGENT_SHORT, AGENT_VERIFY]
+22:21:21.649 [main] INFO cc.eamon.open.flow.core.FlowEngine - 初始化流程引擎完成
+22:21:21.651 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named route in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+22:21:21.652 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named shortAnswer in cc.eamon.open.flow.code.FlowLongAgentCode executed 1 ms.
+22:21:21.652 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named verify in cc.eamon.open.flow.code.FlowLongAgentCode executed 0 ms.
+STRUCTURE flow=FLOW_AGENT_LONG input_chars=11 answer_chars=10 path=[AGENT_ROUTE, AGENT_SHORT, AGENT_VERIFY]
+22:21:21.654 [main] INFO cc.eamon.open.flow.core.FlowEngine - 初始化流程引擎完成
+22:21:21.656 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named FLOW_BIRTHDAY in cc.eamon.open.flow.code.FlowConditionCode executed 1 ms.
+22:21:21.657 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named FLOW_CONDITION_OLD in cc.eamon.open.flow.code.FlowConditionCode executed 0 ms.
+22:21:21.659 [main] INFO cc.eamon.open.flow.core.FlowEngine - 初始化流程引擎完成
+22:21:21.660 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named FLOW_BIRTHDAY in cc.eamon.open.flow.code.FlowConditionCode executed 1 ms.
+22:21:21.661 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named FLOW_CONDITION_CHILD in cc.eamon.open.flow.code.FlowConditionCode executed 1 ms.
+22:21:21.662 [main] INFO cc.eamon.open.flow.core.FlowEngine - 初始化流程引擎完成
+22:21:21.664 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named addBlank in cc.eamon.open.flow.code.FlowSimpleCode executed 0 ms.
+22:21:21.665 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named replaceAll in cc.eamon.open.flow.code.FlowSimpleCode executed 0 ms.
+22:21:21.667 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named addBlank in cc.eamon.open.flow.code.FlowSimpleCode executed 0 ms.
+22:21:21.668 [main] INFO cc.eamon.open.flow.core.FlowEngine - 初始化流程引擎完成
+22:21:21.669 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named addBlank in cc.eamon.open.flow.code.FlowSimpleCode executed 0 ms.
+22:21:21.670 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named replaceAll in cc.eamon.open.flow.code.FlowSimpleCode executed 0 ms.
+22:21:21.672 [main] INFO cc.eamon.open.flow.core.FlowEngine - 初始化流程引擎完成
+22:21:21.673 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named addBlank in cc.eamon.open.flow.code.FlowSimpleCode executed 0 ms.
+22:21:21.675 [main] INFO cc.eamon.open.flow.core.FlowEngine - 初始化流程引擎完成
+22:21:21.675 [main] INFO cc.eamon.open.flow.core.stereotype.support.defination.LocalJavaCodeProxy - method named trim in cc.eamon.open.flow.code.FlowSimpleCode executed 0 ms.
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.857 s -- in TestSuite
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for flow 0.4.14:
+[INFO] 
+[INFO] flow-config ........................................ SUCCESS [  4.072 s]
+[INFO] flow ............................................... SUCCESS [  0.003 s]
+[INFO] flow-remote ........................................ SUCCESS [  0.338 s]
+[INFO] flow-route ......................................... SUCCESS [  2.455 s]
+[INFO] flow-model ......................................... SUCCESS [  1.055 s]
+[INFO] flow-core .......................................... SUCCESS [  2.994 s]
+[INFO] flow-test .......................................... SUCCESS [  5.960 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  17.236 s
+[INFO] Finished at: 2026-11-17T22:21:21+08:00
+[INFO] ------------------------------------------------------------------------

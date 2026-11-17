@@ -1,0 +1,616 @@
+diff --git a/.gitignore b/.gitignore
+index 6fe454b..bb2e912 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -76,3 +76,5 @@ crashlytics-build.properties
+ fabric.properties
+ 
+ .DS_Store
++__pycache__/
++*.py[cod]
+diff --git a/flow-spring-boot-starter/pom.xml b/flow-spring-boot-starter/pom.xml
+index 1269056..ff9ca80 100644
+--- a/flow-spring-boot-starter/pom.xml
++++ b/flow-spring-boot-starter/pom.xml
+@@ -17,6 +17,11 @@
+     </properties>
+ 
+     <dependencies>
++        <dependency>
++            <groupId>org.springframework.boot</groupId>
++            <artifactId>spring-boot</artifactId>
++            <version>2.1.4.RELEASE</version>
++        </dependency>
+ 
+         <dependency>
+             <groupId>cc.eamon.open</groupId>
+@@ -30,4 +35,4 @@
+ 
+     </dependencies>
+ 
+-</project>
+\ No newline at end of file
++</project>
+diff --git a/flow-test/LONG_AGENT_DESIGN.md b/flow-test/LONG_AGENT_DESIGN.md
+new file mode 100644
+index 0000000..0a08835
+--- /dev/null
++++ b/flow-test/LONG_AGENT_DESIGN.md
+@@ -0,0 +1,49 @@
++# 超长上下文 Agent 流程方案
++
++基于 `ymxiong/rsi-flow` 的 `dev_rsi` 分支，固定提交 `93cc223de5bc8f0510801796a46a8ae391725be9`。本方案复用项目已有的 `flow` 子流程、条件路由和 `event` 节点，不改引擎内核。
++
++## 可讨论的结构
++
++```text
++start → AGENT_ROUTE ─短输入→ AGENT_SHORT ──────────┐
++                    └长输入→ FLOW_AGENT_RETRIEVE ──┤→ AGENT_VERIFY → end
++                               └ AGENT_CHUNK → AGENT_DRAFT
++```
++
++长输入路径按 4096 字符步长扫描文档，块边缘增加关键词长度减一的重叠以避免漏检，再将证据限定为最多 4096 字符后交给草稿节点。短输入省去分块。`FLOW_AGENT_RETRIEVE` 是独立子流程，方便以后替换为检索器、LLM 阅读器或多 Agent 结构。当前是**确定性占位实现**：`AGENT_CHUNK` 做逐块精确字符串匹配，`AGENT_DRAFT` 直接转发证据，`AGENT_VERIFY` 仅检查空结果。它只验证结构与超长输入的有界传递，不能作为 InfiniteBench 的 Agent 成绩。
++
++拟在正式实验中为节点定义同一契约：输入 `{sample_id, task, context, question, budget}`，输出 `{answer, evidence_spans, status, token_usage}`。分块器记录源文本字符区间；检索器最多选取固定数量的块；草稿器只能引用这些区间；校验器检查引用存在、答案格式符合任务要求。每个样本的调用数、输入 token 上限、输出 token 上限和超时都应预先冻结。失败样本必须计入分母，不允许只报告成功路由的题目。
++
++## 当前实现和边界
++
++- `FLOW_AGENT_LONG`：根据上下文长度选择短路径或检索子流程，再汇合校验。
++- `FLOW_AGENT_RETRIEVE`：两节点子流程；接口与父流程引用一致。
++- `FlowLongAgentCode`：不读 API Key 的确定性占位适配器，可替换为真实模型组件。
++- `FlowLongAgentTest`：覆盖短路径与超过 100,000 字符的长路径。
++- `validate_long_agent.py`：检查引用、节点可达性、无环和子流程参数契约。
++
++不在流程图中加入无界自循环。需要重试时由外层实验调度器限定次数并记录每次调用；否则难以控制超长样本的成本和复现性。正式对比前还需把 Java 节点接入统一模型客户端、增加精确 token 计量与引用校验，且与直接提示基线使用相同数据、模型和解码参数。
++
++## 验证
++
++```powershell
++python flow-test/validate_long_agent.py
++mvn -s PATH_TO_SETTINGS_XML -q -pl flow-test -am test '-Dtest=FlowLongAgentTest' '-Dsurefire.failIfNoSpecifiedTests=false'
++```
++
++北京时间 2026-11-17 已实际运行 Java 引擎验证，不是只做离线流程图检查。验证集包含 11 项本例运行测试、3 项依赖加载检查、6 项上游顺序/分支/嵌套回归测试。
++
++用户提供课程的外部 Maven `settings.xml` 后，已验证原版 `auto-config:1.0.6`、`easyfile:0.0.3`、`scheduler-core:0.1.2` 的 POM 均返回 200。正式方案保留原依赖与定时 Holder，使用匹配 `releases` 仓库 ID 的合法凭证解决 401。账号配置不进入仓库。此前不依赖私库的公开构建补丁作为独立备选保存，不混用于原版依赖验证。
++
++普通结构测试不自动加载 `FLOW_SCHEDULE` 样例，避免初始化时启动背景任务；依赖可加载不等于定时/分布式服务已配置完成。本轮不声称这些服务实际运行通过。根项目的 Spring Boot starter 补齐缺少的 `spring-boot` 编译依赖。
++
++Java 17 兼容：JaCoCo 0.8.12、Surefire 3.2.5，并为旧版 CGLIB 添加 `java.lang` 模块访问参数。默认不插入覆盖率 agent（Windows 中文缓存路径下可能启动失败），需要覆盖率时单独使用 `-Pcoverage`；本轮不报告覆盖率。测试使用 UTF-8 和北京时间。新增图校验负例测试覆盖环、悬空边、不可达节点、无出口、缺失事件实现、子流程契约及递归引用。
++
++长输入验证记录真实节点执行顺序；覆盖 4096/4097 字符分支边界、超过 130,000 字符输入、跨块关键词、无证据、子流程独立运行及重复调用上下文释放。证据上限按字符计量，包含换行；关键词跨块时保留整行，超预算整行不传给下游。这仍是确定性字符串占位检索，不是语义检索或真实模型实验。
++
++复现全部验证：
++
++```text
++python -m unittest discover -s flow-test -p test_validate_long_agent.py -v
++mvn -s PATH_TO_SETTINGS_XML -B -ntp -pl flow-test -am clean test -Dtest=FlowLongAgentTest,AuthenticatedDependencyTest,FlowStandardTest,FlowNestTest,FlowConditionTest,FlowMultiNodeTest,FlowSingleNodeTest -Dsurefire.failIfNoSpecifiedTests=false
++```
+diff --git a/flow-test/pom.xml b/flow-test/pom.xml
+index e4030ae..9600694 100644
+--- a/flow-test/pom.xml
++++ b/flow-test/pom.xml
+@@ -37,11 +37,18 @@
+     </dependencies>
+ 
+     <build>
++        <testResources>
++            <testResource>
++                <directory>src/test/resources</directory>
++                <!-- Avoid auto-starting background timers when loading ordinary test flows. -->
++                <excludes><exclude>flow/FLOW_SCHEDULE/**</exclude></excludes>
++            </testResource>
++        </testResources>
+         <plugins>
+             <plugin>
+                 <groupId>org.jacoco</groupId>
+                 <artifactId>jacoco-maven-plugin</artifactId>
+-                <version>0.7.9</version>
++                <version>0.8.12</version>
+                 <executions>
+                     <execution>
+                         <goals>
+@@ -57,6 +64,14 @@
+                     </execution>
+                 </executions>
+             </plugin>
++            <plugin>
++                <groupId>org.apache.maven.plugins</groupId>
++                <artifactId>maven-surefire-plugin</artifactId>
++                <version>3.2.5</version>
++                <configuration>
++                    <argLine>@{argLine} ${flow.jvm.args} -Dfile.encoding=UTF-8 -Duser.timezone=Asia/Shanghai</argLine>
++                </configuration>
++            </plugin>
+             <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-compiler-plugin</artifactId>
+@@ -70,4 +85,10 @@
+     </build>
+ 
+ 
+-</project>
+\ No newline at end of file
++    <profiles>
++        <profile>
++            <id>coverage</id>
++            <properties><jacoco.skip>false</jacoco.skip></properties>
++        </profile>
++    </profiles>
++</project>
+diff --git a/flow-test/src/test/java/cc/eamon/open/flow/FLOW_AGENT_LONG/AuthenticatedDependencyTest.java b/flow-test/src/test/java/cc/eamon/open/flow/FLOW_AGENT_LONG/AuthenticatedDependencyTest.java
+new file mode 100644
+index 0000000..fd84c4c
+--- /dev/null
++++ b/flow-test/src/test/java/cc/eamon/open/flow/FLOW_AGENT_LONG/AuthenticatedDependencyTest.java
+@@ -0,0 +1,35 @@
++package cc.eamon.open.flow.FLOW_AGENT_LONG;
++
++import cc.eamon.open.flow.config.flow.FlowConfig;
++import cc.eamon.easyfile.FileTools;
++import com.alibaba.fastjson.JSON;
++import org.testng.Assert;
++import org.testng.annotations.Test;
++import java.nio.charset.StandardCharsets;
++import java.nio.file.Files;
++import java.nio.file.Path;
++
++public class AuthenticatedDependencyTest {
++    @Test public void originalModelConfigurationLoads() {
++        FlowConfig config = JSON.parseObject("{\"id\":\"MODEL_TEST\",\"models\":[{}]}", FlowConfig.class);
++        Assert.assertEquals(config.getModels().get(0).getClass().getName(),
++                "cc.eamon.open.auto.config.code.detail.ModelConfig");
++    }
++
++    @Test public void originalSchedulerClassesAreAvailable() throws Exception {
++        ClassLoader loader = FlowConfig.class.getClassLoader();
++        Assert.assertNotNull(Class.forName("cn.edu.whu.zhuyuhan.scheduler.task.ScheduleTaskRegistrar", false, loader));
++        Assert.assertNotNull(Class.forName("cc.eamon.open.flow.core.stereotype.execute.holder.FlowScheduleHolder", false, loader));
++        Assert.assertNotNull(Class.forName("cc.eamon.open.flow.core.stereotype.execute.holder.FlowScheduleNodeHolder", false, loader));
++    }
++
++    @Test public void originalFileToolsReadsUtf8() throws Exception {
++        Path path = Files.createTempFile("rsi-structure-", ".json");
++        try {
++            Files.write(path, "{\"value\":\"结构验证\"}".getBytes(StandardCharsets.UTF_8));
++            Assert.assertEquals(JSON.parseObject(FileTools.loadFile(path.toFile())).getString("value"), "结构验证");
++        } finally {
++            Files.deleteIfExists(path);
++        }
++    }
++}
+diff --git a/flow-test/src/test/java/cc/eamon/open/flow/FLOW_AGENT_LONG/FlowLongAgentTest.java b/flow-test/src/test/java/cc/eamon/open/flow/FLOW_AGENT_LONG/FlowLongAgentTest.java
+new file mode 100644
+index 0000000..8dd874d
+--- /dev/null
++++ b/flow-test/src/test/java/cc/eamon/open/flow/FLOW_AGENT_LONG/FlowLongAgentTest.java
+@@ -0,0 +1,91 @@
++package cc.eamon.open.flow.FLOW_AGENT_LONG;
++
++import cc.eamon.open.flow.config.constants.FlowConstants;
++import cc.eamon.open.flow.core.FlowEngine;
++import cc.eamon.open.flow.code.FlowLongAgentCode;
++import org.testng.Assert;
++import org.testng.annotations.Test;
++import java.util.Arrays;
++
++public class FlowLongAgentTest {
++    private static final String[] SHORT = {"AGENT_ROUTE", "AGENT_SHORT", "AGENT_VERIFY"};
++    private static final String[] LONG = {"AGENT_ROUTE", "AGENT_CHUNK", "AGENT_DRAFT", "AGENT_VERIFY"};
++
++    @Test public void shortSequentialPath() throws Exception {
++        check("key: value\n", "key", "key: value", SHORT);
++    }
++
++    @Test public void longNestedPathOver100k() throws Exception {
++        check(repeat("noise\n", 22000) + "needle: result\n", "needle", "needle: result", LONG);
++    }
++
++    @Test public void exact4096UsesShortBranch() throws Exception {
++        check("key: value\n" + repeat("x", 4085), "key", "key: value", SHORT);
++    }
++
++    @Test public void above4096UsesNestedBranch() throws Exception {
++        check("key: value\n" + repeat("x", 4086), "key", "key: value", LONG);
++    }
++
++    @Test public void missingEvidenceShort() throws Exception {
++        check("noise\n", "needle", "NOT_FOUND", SHORT);
++    }
++
++    @Test public void missingEvidenceLong() throws Exception {
++        check(repeat("noise\n", 22000), "needle", "NOT_FOUND", LONG);
++    }
++
++    @Test public void keywordAcrossChunkBoundary() throws Exception {
++        check(repeat("x", 4093) + "\nneedle: edge\n", "needle", "needle: edge", LONG);
++    }
++
++    @Test public void boundedEvidenceCountsSeparators() throws Exception {
++        String answer = run("FLOW_AGENT_LONG", repeat("key: value\n", 1000), "key", LONG);
++        Assert.assertTrue(answer.length() <= 4096, "Evidence budget includes newline separators");
++        Assert.assertTrue(answer.startsWith("key: value"));
++        Assert.assertEquals(answer.split("\n").length, 372);
++    }
++
++    @Test public void oversizedEvidenceIsNotPassedOn() throws Exception {
++        check("needle: " + repeat("x", 5000), "needle", "NOT_FOUND", LONG);
++    }
++
++    @Test public void nestedFlowWorksAsIndependentEntry() throws Exception {
++        Assert.assertEquals(run("FLOW_AGENT_RETRIEVE", "needle: child\n", "needle",
++                new String[]{"AGENT_CHUNK", "AGENT_DRAFT"}), "needle: child");
++    }
++
++    @Test public void releaseSeparatesSuccessiveInputs() throws Exception {
++        check(repeat("noise\n", 22000) + "needle: old\n", "needle", "needle: old", LONG);
++        check("noise\n", "needle", "NOT_FOUND", SHORT);
++    }
++
++    private void check(String context, String question, String answer, String[] path) throws Exception {
++        Assert.assertEquals(run("FLOW_AGENT_LONG", context, question, path), answer);
++    }
++
++    private String run(String flow, String context, String question, String[] path) throws Exception {
++        FlowLongAgentCode.resetTrace();
++        FlowEngine engine = FlowEngine.instance();
++        try {
++            engine.register(FlowConstants.SCOPE_DEFAULT, "context", context)
++                    .register(FlowConstants.SCOPE_DEFAULT, "question", question).run(flow);
++            String output = flow.equals("FLOW_AGENT_LONG") ? "answer" : "draft";
++            String answer = (String) engine.retrieve(FlowConstants.SCOPE_DEFAULT, output);
++            Assert.assertEquals(FlowLongAgentCode.trace(), Arrays.asList(path), "Actual engine node order");
++            System.out.println("STRUCTURE flow=" + flow + " input_chars=" + context.length()
++                    + " answer_chars=" + (answer == null ? -1 : answer.length())
++                    + " path=" + FlowLongAgentCode.trace());
++            return answer;
++        } finally {
++            engine.release();
++            FlowLongAgentCode.resetTrace();
++        }
++    }
++
++    private String repeat(String value, int count) {
++        StringBuilder result = new StringBuilder(value.length() * count);
++        for (int i = 0; i < count; i++) result.append(value);
++        return result.toString();
++    }
++}
+diff --git a/flow-test/src/test/java/cc/eamon/open/flow/code/FlowLongAgentCode.java b/flow-test/src/test/java/cc/eamon/open/flow/code/FlowLongAgentCode.java
+new file mode 100644
+index 0000000..12248c6
+--- /dev/null
++++ b/flow-test/src/test/java/cc/eamon/open/flow/code/FlowLongAgentCode.java
+@@ -0,0 +1,77 @@
++package cc.eamon.open.flow.code;
++
++import cc.eamon.open.flow.core.FlowEngine;
++import cc.eamon.open.flow.core.stereotype.Flow;
++import java.util.ArrayList;
++import java.util.List;
++
++/** Deterministic adapters for testing the graph without a model API. */
++public class FlowLongAgentCode {
++    private static final int CHUNK_CHARS = 4096;
++    private static final int MAX_EVIDENCE_CHARS = 4096;
++    private static final ThreadLocal<List<String>> TRACE = ThreadLocal.withInitial(ArrayList::new);
++
++    public static void resetTrace() { TRACE.remove(); }
++    public static List<String> trace() { return new ArrayList<>(TRACE.get()); }
++    private static void record(String node) { TRACE.get().add(node); }
++
++    @Flow(value = "AGENT_ROUTE")
++    public void route(String context) {
++        record("AGENT_ROUTE");
++        FlowEngine.instance().register("route", context.length() > CHUNK_CHARS ? 1 : 0);
++    }
++
++    @Flow(value = "AGENT_SHORT")
++    public void shortAnswer(String context, String question) {
++        record("AGENT_SHORT");
++        FlowEngine.instance().register("draft", findLine(context, question));
++    }
++
++    @Flow(value = "AGENT_CHUNK")
++    public void chunk(String context, String question) {
++        record("AGENT_CHUNK");
++        if (question.isEmpty()) throw new IllegalArgumentException("question must not be empty");
++        StringBuilder evidence = new StringBuilder();
++        int previousLine = -1;
++        for (int start = 0; start < context.length(); start += CHUNK_CHARS) {
++            int end = Math.min(context.length(), start + CHUNK_CHARS);
++            // Overlap so a keyword crossing a chunk edge survives.
++            int scanEnd = (int) Math.min((long) context.length(), (long) end + question.length() - 1);
++            String part = context.substring(start, scanEnd);
++            int offset = part.indexOf(question);
++            while (offset >= 0 && offset < end - start) {
++                int hit = start + offset;
++                int lineStart = context.lastIndexOf('\n', hit - 1) + 1;
++                int lineEnd = context.indexOf('\n', hit);
++                if (lineEnd < 0) lineEnd = context.length();
++                int separator = evidence.length() == 0 ? 0 : 1;
++                if (lineStart != previousLine && lineEnd - lineStart + evidence.length() + separator <= MAX_EVIDENCE_CHARS) {
++                    if (separator != 0) evidence.append('\n');
++                    evidence.append(context, lineStart, lineEnd);
++                }
++                previousLine = lineStart;
++                offset = part.indexOf(question, offset + question.length());
++            }
++        }
++        FlowEngine.instance().register("evidence", evidence.length() == 0 ? "NOT_FOUND" : evidence.toString().trim());
++    }
++
++    @Flow(value = "AGENT_DRAFT")
++    public void draft(String evidence) {
++        record("AGENT_DRAFT");
++        FlowEngine.instance().register("draft", evidence);
++    }
++
++    @Flow(value = "AGENT_VERIFY")
++    public void verify(String draft) {
++        record("AGENT_VERIFY");
++        FlowEngine.instance().register("answer", draft == null || draft.isEmpty() ? "NOT_FOUND" : draft);
++    }
++
++    private String findLine(String text, String question) {
++        for (String line : text.split("\\R")) {
++            if (line.contains(question)) return line.trim();
++        }
++        return "NOT_FOUND";
++    }
++}
+diff --git a/flow-test/src/test/java/cc/eamon/open/flow/testng.xml b/flow-test/src/test/java/cc/eamon/open/flow/testng.xml
+index 9be097e..85c1492 100644
+--- a/flow-test/src/test/java/cc/eamon/open/flow/testng.xml
++++ b/flow-test/src/test/java/cc/eamon/open/flow/testng.xml
+@@ -4,6 +4,7 @@
+         <classes>
+             <class name="cc.eamon.open.flow.FLOW_STANDARD_20210415.FlowStandardTest"/>
+             <class name="cc.eamon.open.flow.FLOW_NEST.FlowNestTest"/>
++            <class name="cc.eamon.open.flow.FLOW_AGENT_LONG.FlowLongAgentTest"/>
+             <class name="cc.eamon.open.flow.FLOW_NODE_MULTI.FlowMultiNodeTest"/>
+             <class name="cc.eamon.open.flow.FLOW_NODE_SINGLE.FlowSingleNodeTest"/>
+             <class name="cc.eamon.open.flow.FLOW_REMOTE_HTTP.FlowRemoteHttpTest"/>
+diff --git a/flow-test/src/test/resources/flow/FLOW_AGENT_LONG/flow-agent-long.json b/flow-test/src/test/resources/flow/FLOW_AGENT_LONG/flow-agent-long.json
+new file mode 100644
+index 0000000..3a5f883
+--- /dev/null
++++ b/flow-test/src/test/resources/flow/FLOW_AGENT_LONG/flow-agent-long.json
+@@ -0,0 +1,32 @@
++{
++  "id": "FLOW_AGENT_LONG",
++  "type": "flow",
++  "name": "Long-context agent: route, retrieve, verify",
++  "params": [
++    { "name": "context", "type": "String" },
++    { "name": "question", "type": "String" }
++  ],
++  "results": [{ "name": "answer", "type": "String" }],
++  "nodes": [
++    { "id": "AGENT_ROUTE", "type": "event", "reference": "AGENT_ROUTE",
++      "params": [{ "name": "context", "type": "String" }],
++      "results": [{ "name": "route", "type": "Integer" }] },
++    { "id": "AGENT_SHORT", "type": "event", "reference": "AGENT_SHORT",
++      "params": [{ "name": "context", "type": "String" }, { "name": "question", "type": "String" }],
++      "results": [{ "name": "draft", "type": "String" }] },
++    { "id": "AGENT_RETRIEVE", "type": "flow", "reference": "FLOW_AGENT_RETRIEVE",
++      "params": [{ "name": "context", "type": "String" }, { "name": "question", "type": "String" }],
++      "results": [{ "name": "draft", "type": "String" }] },
++    { "id": "AGENT_VERIFY", "type": "event", "reference": "AGENT_VERIFY",
++      "params": [{ "name": "draft", "type": "String" }],
++      "results": [{ "name": "answer", "type": "String" }] }
++  ],
++  "routes": [
++    { "source": "start", "target": "AGENT_ROUTE" },
++    { "source": "AGENT_ROUTE", "target": "AGENT_SHORT", "condition": "route==0" },
++    { "source": "AGENT_ROUTE", "target": "AGENT_RETRIEVE", "condition": "route==1" },
++    { "source": "AGENT_SHORT", "target": "AGENT_VERIFY" },
++    { "source": "AGENT_RETRIEVE", "target": "AGENT_VERIFY" },
++    { "source": "AGENT_VERIFY", "target": "end" }
++  ]
++}
+diff --git a/flow-test/src/test/resources/flow/FLOW_AGENT_RETRIEVE/flow-agent-retrieve.json b/flow-test/src/test/resources/flow/FLOW_AGENT_RETRIEVE/flow-agent-retrieve.json
+new file mode 100644
+index 0000000..70162e8
+--- /dev/null
++++ b/flow-test/src/test/resources/flow/FLOW_AGENT_RETRIEVE/flow-agent-retrieve.json
+@@ -0,0 +1,23 @@
++{
++  "id": "FLOW_AGENT_RETRIEVE",
++  "type": "flow",
++  "name": "Bounded evidence extraction subflow",
++  "params": [
++    { "name": "context", "type": "String" },
++    { "name": "question", "type": "String" }
++  ],
++  "results": [{ "name": "draft", "type": "String" }],
++  "nodes": [
++    { "id": "AGENT_CHUNK", "type": "event", "reference": "AGENT_CHUNK",
++      "params": [{ "name": "context", "type": "String" }, { "name": "question", "type": "String" }],
++      "results": [{ "name": "evidence", "type": "String" }] },
++    { "id": "AGENT_DRAFT", "type": "event", "reference": "AGENT_DRAFT",
++      "params": [{ "name": "evidence", "type": "String" }],
++      "results": [{ "name": "draft", "type": "String" }] }
++  ],
++  "routes": [
++    { "source": "start", "target": "AGENT_CHUNK" },
++    { "source": "AGENT_CHUNK", "target": "AGENT_DRAFT" },
++    { "source": "AGENT_DRAFT", "target": "end" }
++  ]
++}
+diff --git a/flow-test/test_validate_long_agent.py b/flow-test/test_validate_long_agent.py
+new file mode 100644
+index 0000000..b95b983
+--- /dev/null
++++ b/flow-test/test_validate_long_agent.py
+@@ -0,0 +1,60 @@
++"""Negative checks ensure malformed graphs are rejected, not just well-formed ones accepted."""
++import copy
++import unittest
++from validate_long_agent import flows, validate, validate_nesting
++
++
++class GraphValidationTest(unittest.TestCase):
++    def parent(self):
++        return copy.deepcopy(flows["FLOW_AGENT_LONG"])
++
++    def test_valid_graphs(self):
++        validate_nesting(flows)
++        for flow in flows.values():
++            validate(flow)
++
++    def test_dangling_route(self):
++        flow = self.parent()
++        flow["routes"][0]["target"] = "MISSING"
++        with self.assertRaisesRegex(AssertionError, "dangling"):
++            validate(flow)
++
++    def test_cycle(self):
++        flow = self.parent()
++        flow["routes"].append({"source": "AGENT_VERIFY", "target": "AGENT_ROUTE"})
++        with self.assertRaisesRegex(AssertionError, "cycle"):
++            validate(flow)
++
++    def test_unreachable_node(self):
++        flow = self.parent()
++        flow["routes"] = [r for r in flow["routes"] if r["target"] != "AGENT_SHORT"]
++        with self.assertRaisesRegex(AssertionError, "unreachable"):
++            validate(flow)
++
++    def test_nested_contract_mismatch(self):
++        flow = self.parent()
++        flow["nodes"][2]["params"] = []
++        with self.assertRaisesRegex(AssertionError, "input mismatch"):
++            validate(flow)
++
++    def test_event_without_code(self):
++        flow = self.parent()
++        flow["nodes"][0]["reference"] = "NO_IMPLEMENTATION"
++        with self.assertRaisesRegex(AssertionError, "event implementation"):
++            validate(flow)
++
++    def test_recursive_subflows(self):
++        registry = copy.deepcopy(flows)
++        registry["FLOW_AGENT_RETRIEVE"]["nodes"].append({"type": "flow", "reference": "FLOW_AGENT_LONG"})
++        with self.assertRaisesRegex(AssertionError, "recursive subflow"):
++            validate_nesting(registry)
++
++    def test_dead_end(self):
++        flow = self.parent()
++        flow["routes"] = [r for r in flow["routes"] if r["source"] != "AGENT_SHORT"]
++        with self.assertRaisesRegex(AssertionError, "cannot reach end"):
++            validate(flow)
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/flow-test/validate_long_agent.py b/flow-test/validate_long_agent.py
+new file mode 100644
+index 0000000..e879330
+--- /dev/null
++++ b/flow-test/validate_long_agent.py
+@@ -0,0 +1,76 @@
++"""Offline graph checks for the long-context agent example (stdlib only)."""
++import json
++import re
++from pathlib import Path
++
++ROOT = Path(__file__).parent / "src" / "test" / "resources" / "flow"
++FILES = [ROOT / "FLOW_AGENT_LONG" / "flow-agent-long.json",
++         ROOT / "FLOW_AGENT_RETRIEVE" / "flow-agent-retrieve.json"]
++flows = {flow["id"]: flow for path in FILES for flow in [json.loads(path.read_text(encoding="utf-8"))]}
++
++
++def validate(flow):
++    nodes = {node["id"]: node for node in flow["nodes"]}
++    assert len(nodes) == len(flow["nodes"]), "duplicate node ID"
++    graph = {name: [] for name in ["start", *nodes, "end"]}
++    for route in flow["routes"]:
++        assert route["source"] in graph and route["target"] in graph, "dangling route"
++        graph[route["source"]].append(route["target"])
++    visited, stack = set(), set()
++
++    def walk(node):
++        assert node not in stack, "cycle without iteration bound"
++        if node in visited:
++            return
++        stack.add(node)
++        for target in graph[node]:
++            walk(target)
++        stack.remove(node)
++        visited.add(node)
++
++    walk("start")
++    assert visited == set(graph), "unreachable node or end"
++    can_finish = {"end"}
++    while True:
++        expanded = can_finish | {name for name, targets in graph.items() if any(t in can_finish for t in targets)}
++        if expanded == can_finish:
++            break
++        can_finish = expanded
++    assert can_finish == set(graph), "node cannot reach end"
++    code = (Path(__file__).parent / "src/test/java/cc/eamon/open/flow/code/FlowLongAgentCode.java").read_text(encoding="utf-8")
++    events = set(re.findall(r'@Flow\(value\s*=\s*"([^"]+)"\)', code))
++    for node in nodes.values():
++        if node["type"] == "event":
++            assert node["reference"] in events, "missing event implementation"
++        if node["type"] == "flow":
++            assert node["reference"] in flows, "missing nested flow"
++            child = flows[node["reference"]]
++            assert node["params"] == child["params"], "nested input mismatch"
++            assert node["results"] == child["results"], "nested output mismatch"
++    return len(nodes), len(flow["routes"])
++
++
++def validate_nesting(registry):
++    done, active = set(), set()
++
++    def visit(name):
++        assert name not in active, "recursive subflow without iteration bound"
++        if name in done:
++            return
++        active.add(name)
++        for node in registry[name]["nodes"]:
++            if node["type"] == "flow":
++                assert node["reference"] in registry, "missing nested flow"
++                visit(node["reference"])
++        active.remove(name)
++        done.add(name)
++
++    for name in registry:
++        visit(name)
++
++
++if __name__ == "__main__":
++    validate_nesting(flows)
++    for name, flow in flows.items():
++        nodes, routes = validate(flow)
++        print(f"{name}: {nodes} nodes, {routes} routes, reachable DAG")
+diff --git a/pom.xml b/pom.xml
+index 6ae6064..39a1f2a 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -41,6 +41,9 @@
+         <okhttp-version>3.7.0</okhttp-version>
+         <scheduler-version>0.1.2</scheduler-version>
+         <auto-config-version>1.0.6</auto-config-version>
++        <flow.jvm.args></flow.jvm.args>
++        <argLine></argLine>
++        <jacoco.skip>true</jacoco.skip>
+     </properties>
+ 
+     <distributionManagement>
+@@ -213,4 +216,11 @@
+         </plugins>
+     </build>
+ 
+-</project>
+\ No newline at end of file
++    <profiles>
++        <profile>
++            <id>jdk9-plus</id>
++            <activation><jdk>[9,)</jdk></activation>
++            <properties><flow.jvm.args>--add-opens java.base/java.lang=ALL-UNNAMED</flow.jvm.args></properties>
++        </profile>
++    </profiles>
++</project>

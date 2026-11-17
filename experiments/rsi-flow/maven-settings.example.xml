@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Template only. Supply your own authorized credentials through the environment.
+     Never commit the course's credential-bearing settings.xml. -->
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0">
+    <servers>
+        <server>
+            <id>releases</id>
+            <username>${env.RSI_MAVEN_USERNAME}</username>
+            <password>${env.RSI_MAVEN_PASSWORD}</password>
+        </server>
+        <server>
+            <id>snapshots</id>
+            <username>${env.RSI_MAVEN_USERNAME}</username>
+            <password>${env.RSI_MAVEN_PASSWORD}</password>
+        </server>
+    </servers>
+    <mirrors>
+        <mirror>
+            <id>maven-default-http-blocker</id>
+            <mirrorOf>external:http:*,!releases,!snapshots</mirrorOf>
+            <url>http://0.0.0.0/</url>
+            <blocked>true</blocked>
+        </mirror>
+    </mirrors>
+</settings>

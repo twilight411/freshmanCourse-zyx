@@ -6,7 +6,7 @@
 
 已对 BIRD、Spider 2.0 做初步可行性分析，选择 BIRD Mini-Dev SQLite 开展首轮实验。Spider 2.0 目前只有调研材料，没有本仓库可核验的模型实验成绩。具体版本、访问条件和数据规模见 [调研原稿](benchmark_feasibility.md)。
 
-`rsi-flow` 已在原工作区拉取 `dev_rsi` 分支、提交 `93cc223de5bc8f0510801796a46a8ae391725be9`，并有超长输入、分支与嵌套流程的占位方案。离线图校验通过，但 Java 测试曾因 `cc.eamon.open:auto-config:1.0.6` 下载返回 401 而阻塞。此部分尚未接入真实模型及 Text-to-SQL 数据集，不作为已完成实验提交。
+`rsi-flow` 基于 `dev_rsi` 分支、提交 `93cc223de5bc8f0510801796a46a8ae391725be9`。北京时间 2026-11-17 已使用课程提供的外部 Maven 配置解决私服 401，在原版依赖下通过 20 项 Java 测试、8 项图检查测试及八模块打包，覆盖长输入、分支和嵌套；详情见 [结构验证补充报告](rsi_flow_structure_validation.md)。此部分尚未接入真实模型及 Text-to-SQL 数据集，与下文 BIRD 实测成绩独立；定时类可加载，定时/分布式调度服务尚未验证。
 
 ## 2. 数据、基线和实验设置
 

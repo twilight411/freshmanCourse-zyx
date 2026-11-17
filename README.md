@@ -10,7 +10,7 @@
 | BIRD Mini-Dev SQLite 基线 | 已完成 500 题、11 个数据库，两组共 1000 条模型输出 | [基线代码](experiments/pilot/full_official_prompt.py) |
 | 结果整理与问题归类 | 已整理官方汇总、逐题结果及至少五类问题 | [实验整理报告](reports/experiment_report.md) |
 | Spider 2.0 模型实验 | 尚未提供实测结果 | 不将调研结论写成模型成绩 |
-| rsi-flow 结构验证 | 本地有方案和占位代码，离线图检查通过；Java 测试曾受依赖 401 阻塞 | 尚未接入本仓库的 Text-to-SQL 实验 |
+| rsi-flow 结构验证 | 课程私服配置验证、原版依赖恢复；20 项 Java 测试、8 项图检查测试及八模块打包通过 | [结构验证报告](reports/rsi_flow_structure_validation.md)，尚未接入真实模型或 Text-to-SQL 实验 |
 
 ## 已有实验结果
 
@@ -27,6 +27,7 @@
 
 - [实验整理报告：方法、结果、问题分析、局限和后续计划](reports/experiment_report.md)
 - [复现说明：无需 API 的检查、数据准备、重新推理和官方评测](docs/reproduce.md)
+- [rsi-flow 代码补丁与一键复现](experiments/rsi-flow/README.md)
 - [1000 条冻结模型输出](experiments/pilot/runs/full_official_prompt_deepseek-flash_max4096.jsonl)
 - [500 题逐题评分](experiments/pilot/runs/full_official_eval/grades.jsonl)
 - 官方汇总：[基线](experiments/pilot/runs/full_official_eval/baseline_official.txt)、[检查清单组](experiments/pilot/runs/full_official_eval/structured_official.txt)

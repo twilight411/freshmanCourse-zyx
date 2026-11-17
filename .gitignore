@@ -10,4 +10,8 @@ data/bird_mini_dev_db/
 *.sqlite
 *.db
 sources/
+.work/
+settings.xml
+settings.local.xml
+maven-settings.local.xml
 *.part

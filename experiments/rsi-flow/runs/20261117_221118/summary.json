@@ -1,0 +1,59 @@
+{
+  "started_at_beijing": "2026-11-17T22:11:18.511814+08:00",
+  "upstream": "https://github.com/ymxiong/rsi-flow.git",
+  "upstream_commit": "93cc223de5bc8f0510801796a46a8ae391725be9",
+  "patch_sha256": "ba6fc6c89adf295a9f89d75c2b21087d9e277324a35506314bce5d94006d37ec",
+  "maven_version": "Apache Maven 3.8.9 (e26b057cc3a17459358ef53e4d0e2e381bf08a1c)\r\nMaven home: D:\\AAAstudy\\java_small_projects\\apache-maven-3.8.9-bin\\apache-maven-3.8.9\r\nJava version: 17, vendor: Oracle Corporation, runtime: C:\\Program Files\\Java\\jdk-17\r\nDefault locale: zh_CN, platform encoding: UTF-8\r\nOS name: \"windows 10\", version: \"10.0\", arch: \"amd64\", family: \"windows\"",
+  "java_version": "java version \"17\" 2021-09-14 LTS\r\nJava(TM) SE Runtime Environment (build 17+35-LTS-2724)\r\nJava HotSpot(TM) 64-Bit Server VM (build 17+35-LTS-2724, mixed mode, sharing)",
+  "repository_policy": "all repositories mirrored to Maven Central; isolated local cache",
+  "model_api_calls": 0,
+  "status": "passed",
+  "java_tests": {
+    "total": 20,
+    "passed": 20,
+    "failed": 0,
+    "skipped": 0
+  },
+  "test_methods": [
+    "above4096UsesNestedBranch",
+    "boundedEvidenceCountsSeparators",
+    "exact4096UsesShortBranch",
+    "keywordAcrossChunkBoundary",
+    "longNestedPathOver100k",
+    "missingEvidenceLong",
+    "missingEvidenceShort",
+    "nestedFlowWorksAsIndependentEntry",
+    "oversizedEvidenceIsNotPassedOn",
+    "releaseSeparatesSuccessiveInputs",
+    "shortSequentialPath",
+    "caseSingleNode",
+    "caseNest",
+    "caseMultiNode",
+    "embeddedModelsUseProjectModelConfig",
+    "unavailableScheduledFlowFailsExplicitly",
+    "unavailableScheduledNodeFailsExplicitly",
+    "caseConditionAdult",
+    "caseConditionChild",
+    "caseNewStandard"
+  ],
+  "structure_traces": [
+    "STRUCTURE flow=FLOW_AGENT_LONG input_chars=4097 answer_chars=10 path=[AGENT_ROUTE, AGENT_CHUNK, AGENT_DRAFT, AGENT_VERIFY]",
+    "STRUCTURE flow=FLOW_AGENT_LONG input_chars=11000 answer_chars=4091 path=[AGENT_ROUTE, AGENT_CHUNK, AGENT_DRAFT, AGENT_VERIFY]",
+    "STRUCTURE flow=FLOW_AGENT_LONG input_chars=4096 answer_chars=10 path=[AGENT_ROUTE, AGENT_SHORT, AGENT_VERIFY]",
+    "STRUCTURE flow=FLOW_AGENT_LONG input_chars=4107 answer_chars=12 path=[AGENT_ROUTE, AGENT_CHUNK, AGENT_DRAFT, AGENT_VERIFY]",
+    "STRUCTURE flow=FLOW_AGENT_LONG input_chars=132015 answer_chars=14 path=[AGENT_ROUTE, AGENT_CHUNK, AGENT_DRAFT, AGENT_VERIFY]",
+    "STRUCTURE flow=FLOW_AGENT_LONG input_chars=132000 answer_chars=9 path=[AGENT_ROUTE, AGENT_CHUNK, AGENT_DRAFT, AGENT_VERIFY]",
+    "STRUCTURE flow=FLOW_AGENT_LONG input_chars=6 answer_chars=9 path=[AGENT_ROUTE, AGENT_SHORT, AGENT_VERIFY]",
+    "STRUCTURE flow=FLOW_AGENT_RETRIEVE input_chars=14 answer_chars=13 path=[AGENT_CHUNK, AGENT_DRAFT]",
+    "STRUCTURE flow=FLOW_AGENT_LONG input_chars=5008 answer_chars=9 path=[AGENT_ROUTE, AGENT_CHUNK, AGENT_DRAFT, AGENT_VERIFY]",
+    "STRUCTURE flow=FLOW_AGENT_LONG input_chars=132012 answer_chars=11 path=[AGENT_ROUTE, AGENT_CHUNK, AGENT_DRAFT, AGENT_VERIFY]",
+    "STRUCTURE flow=FLOW_AGENT_LONG input_chars=6 answer_chars=9 path=[AGENT_ROUTE, AGENT_SHORT, AGENT_VERIFY]",
+    "STRUCTURE flow=FLOW_AGENT_LONG input_chars=11 answer_chars=10 path=[AGENT_ROUTE, AGENT_SHORT, AGENT_VERIFY]"
+  ],
+  "finished_at_beijing": "2026-11-17T22:11:46.181211+08:00",
+  "evidence_sha256": {
+    "graph-tests.log": "c1627ba504d638baa6c245dc98ff8884bf54b25d577efd0eba4c21e3f3b6d9d8",
+    "graph.log": "bbb2bb97827ea5c0a6d5a97d139c0cba9f5785278b7514100210373ae4622718",
+    "maven.log": "34e7bf5bf8eab56b64b157ee5e40223398fd84fbf01517e4c783ca4c3cfab1cf"
+  }
+}

@@ -1,0 +1,13 @@
+test_cycle (test_validate_long_agent.GraphValidationTest.test_cycle) ... ok
+test_dangling_route (test_validate_long_agent.GraphValidationTest.test_dangling_route) ... ok
+test_dead_end (test_validate_long_agent.GraphValidationTest.test_dead_end) ... ok
+test_event_without_code (test_validate_long_agent.GraphValidationTest.test_event_without_code) ... ok
+test_nested_contract_mismatch (test_validate_long_agent.GraphValidationTest.test_nested_contract_mismatch) ... ok
+test_recursive_subflows (test_validate_long_agent.GraphValidationTest.test_recursive_subflows) ... ok
+test_unreachable_node (test_validate_long_agent.GraphValidationTest.test_unreachable_node) ... ok
+test_valid_graphs (test_validate_long_agent.GraphValidationTest.test_valid_graphs) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.006s
+
+OK

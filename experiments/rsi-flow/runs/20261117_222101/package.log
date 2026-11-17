@@ -1,0 +1,221 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] flow-config                                                        [jar]
+[INFO] flow                                                               [pom]
+[INFO] flow-remote                                                        [jar]
+[INFO] flow-route                                                         [jar]
+[INFO] flow-model                                                         [jar]
+[INFO] flow-core                                                          [jar]
+[INFO] flow-spring-boot-starter                                           [jar]
+[INFO] flow-test                                                          [jar]
+[INFO] 
+[INFO] ---------------------< cc.eamon.open:flow-config >----------------------
+[INFO] Building flow-config 0.4.14                                        [1/8]
+[INFO]   from flow-config\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ flow-config ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-config\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ flow-config ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ flow-config ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-config\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ flow-config ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ flow-config ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ flow-config ---
+[INFO] Building jar: D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-config\target\flow-config-0.4.14.jar
+[INFO] 
+[INFO] -------------------------< cc.eamon.open:flow >-------------------------
+[INFO] Building flow 0.4.14                                               [2/8]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] ---------------------< cc.eamon.open:flow-remote >----------------------
+[INFO] Building flow-remote 0.4.14                                        [3/8]
+[INFO]   from flow-remote\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ flow-remote ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-remote\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ flow-remote ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ flow-remote ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-remote\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ flow-remote ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ flow-remote ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ flow-remote ---
+[INFO] Building jar: D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-remote\target\flow-remote-0.4.14.jar
+[INFO] 
+[INFO] ----------------------< cc.eamon.open:flow-route >----------------------
+[INFO] Building flow-route 0.4.14                                         [4/8]
+[INFO]   from flow-route\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ flow-route ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-route\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ flow-route ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ flow-route ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ flow-route ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ flow-route ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ flow-route ---
+[INFO] Building jar: D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-route\target\flow-route-0.4.14.jar
+[INFO] 
+[INFO] ----------------------< cc.eamon.open:flow-model >----------------------
+[INFO] Building flow-model 0.4.14                                         [5/8]
+[INFO]   from flow-model\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ flow-model ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-model\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ flow-model ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ flow-model ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-model\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ flow-model ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ flow-model ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ flow-model ---
+[INFO] Building jar: D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-model\target\flow-model-0.4.14.jar
+[INFO] 
+[INFO] ----------------------< cc.eamon.open:flow-core >-----------------------
+[INFO] Building flow-core 0.4.14                                          [6/8]
+[INFO]   from flow-core\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ flow-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-core\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ flow-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 104 source files to D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-core\target\classes
+[INFO] /D:/Users/zyx/Documents/ChatGPT/新人项目-CCF/submission/freshmanCourse-zyx/.work/rsi-flow-authenticated/flow-core/src/main/java/cc/eamon/open/flow/core/stereotype/support/defination/LocalJavaCode.java: D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-core\src\main\java\cc\eamon\open\flow\core\stereotype\support\defination\LocalJavaCode.java使用或覆盖了已过时的 API。
+[INFO] /D:/Users/zyx/Documents/ChatGPT/新人项目-CCF/submission/freshmanCourse-zyx/.work/rsi-flow-authenticated/flow-core/src/main/java/cc/eamon/open/flow/core/stereotype/support/defination/LocalJavaCode.java: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+[INFO] /D:/Users/zyx/Documents/ChatGPT/新人项目-CCF/submission/freshmanCourse-zyx/.work/rsi-flow-authenticated/flow-core/src/main/java/cc/eamon/open/flow/core/monitor/MonitorBus.java: D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-core\src\main\java\cc\eamon\open\flow\core\monitor\MonitorBus.java使用了未经检查或不安全的操作。
+[INFO] /D:/Users/zyx/Documents/ChatGPT/新人项目-CCF/submission/freshmanCourse-zyx/.work/rsi-flow-authenticated/flow-core/src/main/java/cc/eamon/open/flow/core/monitor/MonitorBus.java: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ flow-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-core\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ flow-core ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ flow-core ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ flow-core ---
+[INFO] Building jar: D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-core\target\flow-core-0.4.14.jar
+[INFO] 
+[INFO] ---------------< cc.eamon.open:flow-spring-boot-starter >---------------
+[INFO] Building flow-spring-boot-starter 0.4.14                           [7/8]
+[INFO]   from flow-spring-boot-starter\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ flow-spring-boot-starter ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ flow-spring-boot-starter ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ flow-spring-boot-starter ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-spring-boot-starter\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ flow-spring-boot-starter ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ flow-spring-boot-starter ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ flow-spring-boot-starter ---
+[INFO] Building jar: D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-spring-boot-starter\target\flow-spring-boot-starter-0.4.14.jar
+[INFO] 
+[INFO] ----------------------< cc.eamon.open:flow-test >-----------------------
+[INFO] Building flow-test 0.4.14                                          [8/8]
+[INFO]   from flow-test\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.12:prepare-agent (default) @ flow-test ---
+[INFO] Skipping JaCoCo execution because property jacoco.skip is set.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ flow-test ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-test\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ flow-test ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ flow-test ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 19 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ flow-test ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.2.5:test (default-test) @ flow-test ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.12:report (report) @ flow-test ---
+[INFO] Skipping JaCoCo execution because property jacoco.skip is set.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ flow-test ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: D:\Users\zyx\Documents\ChatGPT\新人项目-CCF\submission\freshmanCourse-zyx\.work\rsi-flow-authenticated\flow-test\target\flow-test-0.4.14.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for flow 0.4.14:
+[INFO] 
+[INFO] flow-config ........................................ SUCCESS [  1.906 s]
+[INFO] flow ............................................... SUCCESS [  0.001 s]
+[INFO] flow-remote ........................................ SUCCESS [  0.102 s]
+[INFO] flow-route ......................................... SUCCESS [  0.377 s]
+[INFO] flow-model ......................................... SUCCESS [  0.250 s]
+[INFO] flow-core .......................................... SUCCESS [  6.308 s]
+[INFO] flow-spring-boot-starter ........................... SUCCESS [  0.911 s]
+[INFO] flow-test .......................................... SUCCESS [  0.967 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.043 s
+[INFO] Finished at: 2026-11-17T22:21:34+08:00
+[INFO] ------------------------------------------------------------------------
