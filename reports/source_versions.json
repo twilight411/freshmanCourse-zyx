@@ -1,0 +1,368 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-11-03T18:08:43Z",
+  "purpose": "Pinned primary-source provenance for a Text-to-SQL benchmark feasibility assessment. No model accuracy was measured.",
+  "constraints": {
+    "workspace_only": true,
+    "database_archives_downloaded_by_this_inspection": false,
+    "large_dependencies_installed": false,
+    "disk_budget_bytes": 400000000,
+    "stop_download_below_free_bytes_decimal": 4000000000,
+    "stop_download_below_free_bytes_applied": 4294967296,
+    "note": "4 GB was applied conservatively as 4 GiB. Only source documentation, task manifests, one BIRD annotation JSONL, and the BEAVER paper were fetched. No database archive or model was downloaded."
+  },
+  "environment": {
+    "checked_at_utc": "2026-11-03T18:08:43Z",
+    "workspace": "/home/codex-runner/workspaces/text2sql",
+    "platform": "Linux-6.1.0-52-amd64-x86_64-with-glibc2.36",
+    "python": "3.11.2",
+    "python_sqlite": "3.40.1",
+    "cpu_count": 2,
+    "memory_total_bytes": 4105363456,
+    "memory_available_bytes": 1708441600,
+    "swap_total_bytes": 2147479552,
+    "filesystem_size_bytes": 42098429952,
+    "filesystem_available_bytes": 4532322304,
+    "free_headroom_above_4GiB_floor_bytes": 237355008,
+    "database_archives_observed_in_workspace": {
+      "path": "data/bird_mini_dev_db",
+      "sqlite_file_count": 11,
+      "sqlite_total_bytes": 1493287936,
+      "provenance": "unverified pre-existing extracted tree; not downloaded, not hashed, and not used for any result in this assessment"
+    }
+  },
+  "sources": {
+    "bird_mini_dev": {
+      "official_pages": [
+        "https://github.com/bird-bench/mini_dev",
+        "https://huggingface.co/datasets/birdsql/bird_mini_dev"
+      ],
+      "repository": {
+        "url": "https://github.com/bird-bench/mini_dev",
+        "default_branch": "main",
+        "commit_sha": "1c49a375e76c471e218564da3f4617513d33e371",
+        "tree_sha": "846b9081c08a650b6293da57d348e9cc59417200",
+        "commit_date": "2026-10-28T23:57:55-07:00",
+        "commit_subject": "Merge pull request #54 from bird-bench/docs/minidev-2026-update-20261028",
+        "inspection_method": "git clone --depth 1",
+        "license_metadata": null
+      },
+      "dataset": {
+        "hub": "huggingface",
+        "id": "birdsql/bird_mini_dev",
+        "revision": "5b256b5a9c17478f06ed6912612e9a14d17065c8",
+        "last_modified": "2026-10-27T18:19:04.000Z",
+        "private": false,
+        "gated": false,
+        "license": "cc-by-sa-4.0",
+        "release": "Mini-Dev 1024",
+        "rows_per_dialect": 500,
+        "question_id_range": [
+          0,
+          499
+        ],
+        "manifest": {
+          "path": "data/manifest.json",
+          "bytes": 2195,
+          "sha256": "66ddb0e39e4ee6a443abff8e8f915674ec1602a36e9f1c763f4750414bcf4611",
+          "internal_source_final_manifest_sha256": "4a27d6ad840c86080c24d7c61a541eb368d1f42c0a5f3eb1ec3d46007af3c9af"
+        },
+        "annotation_files": {
+          "sqlite": {
+            "path": "data/mini_dev_sqlite.jsonl",
+            "bytes": 471159,
+            "sha256": "926af2a0d1b47e5d0d15a7aa8a34d4721007f4550a881555b6a89496b54a2606",
+            "rows": 500,
+            "downloaded": true,
+            "sha256_matches_manifest": true
+          },
+          "mysql": {
+            "path": "data/mini_dev_mysql.jsonl",
+            "bytes": 474422,
+            "sha256": "4012f6afbcbe12733e64ac563192ff80d87a2664d55f41fe55a3bc71e15cfdc6",
+            "rows": 500,
+            "downloaded": false
+          },
+          "postgresql": {
+            "path": "data/mini_dev_postgresql.jsonl",
+            "bytes": 524715,
+            "sha256": "ff8b561724d8e643bc906434e9e612cc43a782a385764f1c288ffe82c73cbc2c",
+            "rows": 500,
+            "downloaded": false
+          }
+        },
+        "card": {
+          "path": "README.md",
+          "bytes": 6442,
+          "sha256": "ca606afa71af7ed78b6cb72dccb9108d28ff8e3eaefc521cec044337b5e2d639"
+        }
+      },
+      "baseline_assets": {
+        "readme_sha256": "dec14c3835fb08406e58312ba0eca13e00cea621c185bc3cf2852ab9c14726ca",
+        "prompt_template_sha256": "62b75a140957583fb04f9cfa8962f704332f3e3cb437ddd2784783e9ee7b176a",
+        "validator_sha256": "4bc633f61fc7048f7071080bdbdc9c0cae17b13d927406fcca2e9bfd1fc7478f",
+        "declared_sqlite_schema_sha256": "5176e324a72e80a8a37a12285596d123e0ba6c310dceaa9f13a1e413ee88ff5b",
+        "declared_sqlite_prompt_rows_sha256": "b060ee9cb69be62a052f5e40367afeb2cf08f345f15ca318fd9a0f9bf52d53ef",
+        "prompt_contains_gold_sql": false
+      },
+      "database_artifacts": {
+        "archive": {
+          "url": "https://bird-bench.oss-cn-beijing.aliyuncs.com/minidev.zip",
+          "bytes": 800943648,
+          "last_modified": "2024-06-20T05:01:24Z",
+          "etag": "\"7BEB6DAB11E65F0FDE563E644A1EA319\"",
+          "content_md5_base64": "e+ttqxHmXw/eVj5kSh6jGQ==",
+          "content_md5_hex": "7beb6dab11e65f0fde563e644a1ea319",
+          "sha256": null,
+          "downloaded": false,
+          "caveat": "The archive predates the 2026 annotation release; compatibility with current 500 rows must be checked before use."
+        },
+        "sqlite_docker_image": {
+          "registry": "docker.io",
+          "repository": "3036197201/bird-mini-dev-sqlite",
+          "tag": "20261009",
+          "index_media_type": "application/vnd.oci.image.index.v1+json",
+          "index_digest": "sha256:f5e2746e284fdf4bc5d7a168a42d951bdf3d429d6db91b9928308e8261d0b75e",
+          "linux_amd64_manifest_digest": "sha256:4c213bf136e5ee6a4b7565ab03a8c2f4d507f34cd60bcf84322ab47d9a2080df",
+          "linux_amd64_config_digest": "sha256:fb730cacfa2139116735a9e14c48b859260a2960a1de8d4149242c529a55d580",
+          "compressed_layer_bytes": 352065205,
+          "downloaded": false,
+          "caveat": "Tag was published 2026-10-15, before the 2026-10-26 annotation-release commit. Pin the digest and run a DB/annotation compatibility preflight."
+        },
+        "per_database_tags_observed": [
+          "harbor-minidev1024-r1-california_schools-c0903eec662e-1e876b3a",
+          "harbor-minidev1024-r1-card_games-c98bdb57fe74-1e876b3a",
+          "harbor-minidev1024-r1-codebase_community-92101be6d2a9-1e876b3a",
+          "harbor-minidev1024-r1-debit_card_specializing-b3d149ad0574-1e876b3a",
+          "harbor-minidev1024-r1-european_football_2-f72f5c9b9903-1e876b3a",
+          "harbor-minidev1024-r1-financial-d15d89cdb068-1e876b3a",
+          "harbor-minidev1024-r1-formula_1-79770caf9667-1e876b3a",
+          "harbor-minidev1024-r1-student_club-eb89bcfe97ee-1e876b3a",
+          "harbor-minidev1024-r1-superhero-75e94a2c3236-1e876b3a",
+          "harbor-minidev1024-r1-thrombosis_prediction-87583183c3dc-1e876b3a",
+          "harbor-minidev1024-r1-toxicology-4df4094208e0-1e876b3a"
+        ]
+      },
+      "evaluator": {
+        "entrypoint": "evaluation/evaluation_ex.py",
+        "sha256": "da1bbcd4530be83692d7c650c814ea9704bb710d0c953eb75d02ccb38233cf89",
+        "utils_sha256": "f6943d249caac5aeaef9bce21d43dbf29dcef85a0c965a76df032a9542f308bf",
+        "runner_sha256": "22e9f3e0254cf92895c40b08e08f52c846be76a8b22479f413f9ff3714c1ee87",
+        "runner_hardcodes_num_cpus": 16,
+        "reported_metrics": [
+          "execution accuracy (EX)",
+          "R-VES (beta)",
+          "soft F1 (beta)"
+        ]
+      }
+    },
+    "beaver": {
+      "official_pages": [
+        "https://github.com/beaverbench/beaver",
+        "https://arxiv.org/abs/2409.02038"
+      ],
+      "repository": {
+        "url": "https://github.com/beaverbench/beaver",
+        "default_branch": "main",
+        "commit_sha": "5a6509f6252a65265d3f4e38522c75823d128a62",
+        "tree_sha": "9974517573915e62a998542a486e05dd4584f017",
+        "commit_date": "2026-05-19T11:22:34-04:00",
+        "commit_subject": "bug fix",
+        "inspection_method": "git clone --depth 1",
+        "license_metadata": null,
+        "readme_sha256": "c2459c8a6c6d7da172f1583b9785fd0a202935997edaf52755b2c2bb3861878b"
+      },
+      "paper": {
+        "arxiv_id": "2409.02038",
+        "version_inspected": "v3",
+        "version_date": "2026-05-13T15:02:07Z",
+        "html_sha256": "71d12e0e2b6632aa6875e9f60c9a5564859a69e9a3aa7826159df12705f30fb8",
+        "explicit_oracle_hint_language": true
+      },
+      "datasets": {
+        "hub": "huggingface",
+        "collection": "beaverbench/beaver-dataset-6a03e1cc6ac7ed67e33d200b",
+        "query": {
+          "id": "beaverbench/beaver-query",
+          "revision": "3c8eb607ee2b7709ad4b1d53243e04af1b9eda4b",
+          "last_modified": "2026-05-18T22:31:46.000Z",
+          "gated": "auto",
+          "license": "mit",
+          "siblings": [
+            "data/dw-00000-of-00001.parquet",
+            "data/dw_real-00000-of-00001.parquet",
+            "data/neutron-00000-of-00001.parquet",
+            "data/nova-00000-of-00001.parquet"
+          ],
+          "downloaded": false
+        },
+        "table": {
+          "id": "beaverbench/beaver-table",
+          "revision": "86f2c4ec45990ac30677dfdfec9826f28171000a",
+          "last_modified": "2026-05-18T22:21:25.000Z",
+          "gated": "auto",
+          "license": "mit",
+          "database_zip": {
+            "path": "beaver_db.zip",
+            "bytes": 261603612,
+            "lfs_sha256": null,
+            "downloaded": false,
+            "caveat": "LFS object hash is not exposed to this unauthenticated/gated session; verify after access is granted."
+          },
+          "downloaded": false
+        }
+      },
+      "evaluator": {
+        "data_download_script_sha256": "70351dca08b8330b7801d33c99600013713839ab753c2858604fddbd6a52a320",
+        "execution_accuracy_sha256": "c841d50e8a8f996f722d817909ead04b7ef52d4dd2bf6883ce7e64e90494ecf6",
+        "subtasks_sha256": "f5449fa89109f531a30b7bc35ddcae11e1755f6994ccda677fd4448cb5759901",
+        "backend": "MySQL",
+        "reported_metrics": [
+          "execution accuracy",
+          "table retrieval F1",
+          "column mapping F1",
+          "join key F1",
+          "domain knowledge F1",
+          "query decomposition (LLM judge)"
+        ],
+        "hint_settings": {
+          "0": "retrieved top-k tables; no gold hints",
+          "1": "gold tables + column mapping + join keys",
+          "2": "setting 1 + domain knowledge + subquery decomposition"
+        }
+      }
+    },
+    "spider2": {
+      "official_pages": [
+        "https://github.com/xlang-ai/Spider2"
+      ],
+      "repository": {
+        "url": "https://github.com/xlang-ai/Spider2",
+        "default_branch": "main",
+        "commit_sha": "cafb867313aab4e674652054198f383cf4018943",
+        "tree_sha": "6c26e749e8f61befd205944956dc855672464614",
+        "commit_date": "2026-08-12T13:01:36Z",
+        "commit_subject": "Remove HTML span tags from news section",
+        "inspection_method": "GitHub tree API plus raw files at the pinned commit; partial clone was stopped and removed before checkpoint",
+        "license": "MIT",
+        "readme_sha256": "fb431e69c4988ed651621abd7aafe4709a11ce185189cd604eaab87752c570cb"
+      },
+      "variants": {
+        "lite": {
+          "documented_task_count": 547,
+          "verified_task_manifest_rows": 547,
+          "task_manifest": {
+            "path": "spider2-lite/spider2-lite.jsonl",
+            "bytes": 242129,
+            "sha256": "4ba48916576fbd60311a2478c6d4550b5d8cf3fcbc512457ea493b5941ca009d"
+          },
+          "documented_db_split": {
+            "bigquery": 214,
+            "snowflake": 198,
+            "sqlite": 135
+          },
+          "observed_instance_prefix_split": {
+            "bq": 180,
+            "ga": 25,
+            "sf": 18,
+            "sf_bq": 189,
+            "local": 135
+          },
+          "split_note": "Documented 214/198/135 does not reconcile exactly with instance-id prefixes (bq+ga=205, sf+sf_bq=207, local=135). Treat task metadata, not prefix, as authoritative.",
+          "local_sqlite_subset": 135,
+          "full_benchmark_local": false,
+          "local_database_download": {
+            "provider": "Google Drive",
+            "id": "1coEVsCZq-Xvj9p2TnhBFoFTsY-UoYGmG",
+            "bytes": null,
+            "sha256": null,
+            "downloaded": false
+          },
+          "evaluator_sha256": "e93624e4ffa00e51c67bdee1d9e42b534630087cb453270c0dedc0c73e618480",
+          "evaluation_readme_sha256": "117d6c85f006a2c5b62c819d1fd8465bf61b2248ae4b98ada3b42ca74ac48e8b"
+        },
+        "snow": {
+          "documented_task_count": 547,
+          "verified_task_manifest_rows": 547,
+          "task_manifest": {
+            "path": "spider2-snow/spider2-snow.jsonl",
+            "bytes": 245274,
+            "sha256": "5b57f3aec3cc737caf1290c2b4c8328faa45c3d5e4633c6c6c944dfd67bf400f"
+          },
+          "local_reproducible": false,
+          "external_dependency": "Snowflake account with MFA and programmatic access token",
+          "evaluator_sha256": "e5f1304b874464531f234e657b105c79ecfe00b2023eb5872406d9713abd11ef",
+          "evaluation_readme_sha256": "1fbbe93df7a573250774fb023222ae465a5504734153136d215980da0c30d595"
+        },
+        "dbt": {
+          "verified_task_manifest_rows": 68,
+          "task_manifest": {
+            "path": "spider2-dbt/examples/spider2-dbt.jsonl",
+            "bytes": 16139,
+            "sha256": "a9c3e872df37749ffefcb16f66bc2e5450ceaa3de691c984d67e139f81b3fe76"
+          },
+          "gold_eval_manifest": {
+            "path": "spider2-dbt/evaluation_suite/gold/spider2_eval.jsonl",
+            "bytes": 19128,
+            "sha256": "59abe98560f120abd7665b1c4abcc59664b17e8d70f3452cd18ba25fcecef501",
+            "rows": 68
+          },
+          "documented_task_count_discrepancy": {
+            "main_readme": 68,
+            "spider2_dbt_readme": 69,
+            "verified_manifests": 68
+          },
+          "local_reproducible_in_principle": true,
+          "backend": "DuckDB + dbt, with Docker for agent runtime",
+          "evaluator_sha256": "29d989870c1878bc4de7508a68dd4edd203c9da6773a2fae91701a163af634f5",
+          "readme_sha256": "77fc987b604674d2dbe0e5f1084a653c9eeb56a6222ea41cfdd7dbbfaef57457",
+          "evaluation_readme_sha256": "7392cadccfa8680ea88615f4d79d9018b3ddb631fb6760a26fc3d7ed7212f910"
+        }
+      }
+    }
+  },
+  "pilot": {
+    "benchmark": "birdsql/bird_mini_dev",
+    "dialect": "SQLite",
+    "annotation_revision": "5b256b5a9c17478f06ed6912612e9a14d17065c8",
+    "annotation_sha256": "926af2a0d1b47e5d0d15a7aa8a34d4721007f4550a881555b6a89496b54a2606",
+    "question_ids": [
+      9,
+      49,
+      75,
+      94,
+      119,
+      155,
+      161,
+      168,
+      198,
+      218,
+      269,
+      310,
+      332,
+      367,
+      378,
+      432,
+      451,
+      461,
+      475,
+      480
+    ],
+    "selection_method": "hash-stratified: minimum SHA-256 rank within each db_id, then the next nine minimum SHA-256 ranks globally among the remaining rows",
+    "selection_salt": "birdsql/bird_mini_dev@5b256b5a9c17478f06ed6912612e9a14d17065c8|pilot20-v1|",
+    "selection_uses_gold_sql": false,
+    "database_count": 11,
+    "questions_with_evidence": 13,
+    "confirmatory_run_question_count": 500,
+    "no_accuracy_measured": true
+  },
+  "provenance_gaps": [
+    "BIRD publishes no per-SQLite-file SHA-256 manifest at the pinned annotation revision; the 2024 archive and 2026 annotation release therefore cannot be tied by a published content hash.",
+    "The BIRD SQLite Docker tag inspected predates the 2026-10-26 annotation-release commit by 11 days.",
+    "BEAVER's database ZIP LFS hash is hidden while unauthenticated and the dataset is gated.",
+    "Spider 2.0 does not publish sizes or hashes for its Google Drive local/Snowflake/DBT assets; only task manifests can be pinned.",
+    "Spider 2.0 releases only partial gold SQL; full scoring uses gold execution-result CSVs.",
+    "No benchmark accuracy was computed, and no source-baseline number is repeated here."
+  ],
+  "no_accuracy_measured": true
+}

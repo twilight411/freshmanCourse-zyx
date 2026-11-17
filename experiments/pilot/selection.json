@@ -1,0 +1,141 @@
+{
+  "database_archive": {
+    "provided_md5": "7beb6dab11e65f0fde563e644a1ea319",
+    "verification": "official archive was downloaded and its MD5 independently verified before extracting the SQLite databases; archive then removed"
+  },
+  "dataset": {
+    "path": "data/mini_dev_sqlite_2026.jsonl",
+    "rows": 500,
+    "sha256": "926af2a0d1b47e5d0d15a7aa8a34d4721007f4550a881555b6a89496b54a2606"
+  },
+  "fingerprint_sha256": "e2b987732d9a1ee2248cf6fe65dfb5d1c277a86083ac9c1c0e2b9c48384da3ef",
+  "format_version": 1,
+  "items": [
+    {
+      "db_id": "california_schools",
+      "difficulty": "challenging",
+      "question_id": 37
+    },
+    {
+      "db_id": "codebase_community",
+      "difficulty": "moderate",
+      "question_id": 119
+    },
+    {
+      "db_id": "financial",
+      "difficulty": "simple",
+      "question_id": 195
+    },
+    {
+      "db_id": "european_football_2",
+      "difficulty": "challenging",
+      "question_id": 192
+    },
+    {
+      "db_id": "toxicology",
+      "difficulty": "moderate",
+      "question_id": 468
+    },
+    {
+      "db_id": "card_games",
+      "difficulty": "simple",
+      "question_id": 54
+    },
+    {
+      "db_id": "thrombosis_prediction",
+      "difficulty": "challenging",
+      "question_id": 385
+    },
+    {
+      "db_id": "student_club",
+      "difficulty": "moderate",
+      "question_id": 296
+    },
+    {
+      "db_id": "superhero",
+      "difficulty": "challenging",
+      "question_id": 353
+    },
+    {
+      "db_id": "formula_1",
+      "difficulty": "moderate",
+      "question_id": 242
+    },
+    {
+      "db_id": "debit_card_specializing",
+      "difficulty": "challenging",
+      "question_id": 151
+    },
+    {
+      "db_id": "card_games",
+      "difficulty": "simple",
+      "question_id": 49
+    },
+    {
+      "db_id": "california_schools",
+      "difficulty": "simple",
+      "question_id": 4
+    },
+    {
+      "db_id": "european_football_2",
+      "difficulty": "moderate",
+      "question_id": 165
+    },
+    {
+      "db_id": "student_club",
+      "difficulty": "simple",
+      "question_id": 297
+    },
+    {
+      "db_id": "financial",
+      "difficulty": "challenging",
+      "question_id": 217
+    },
+    {
+      "db_id": "thrombosis_prediction",
+      "difficulty": "moderate",
+      "question_id": 384
+    },
+    {
+      "db_id": "codebase_community",
+      "difficulty": "simple",
+      "question_id": 126
+    },
+    {
+      "db_id": "superhero",
+      "difficulty": "challenging",
+      "question_id": 357
+    },
+    {
+      "db_id": "toxicology",
+      "difficulty": "moderate",
+      "question_id": 474
+    }
+  ],
+  "purpose": "20-question engineering pilot only; not a representative or official benchmark sample",
+  "question_ids": [
+    37,
+    119,
+    195,
+    192,
+    468,
+    54,
+    385,
+    296,
+    353,
+    242,
+    151,
+    49,
+    4,
+    165,
+    297,
+    217,
+    384,
+    126,
+    357,
+    474
+  ],
+  "selection_algorithm": "coverage-first greedy minimum of (db_still_missing, selected_in_db, selected_at_difficulty, sha256(seed:question_id), question_id); gold SQL not consulted",
+  "selection_seed": 20261104,
+  "selection_size": 20
+}

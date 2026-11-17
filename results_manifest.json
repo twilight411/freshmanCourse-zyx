@@ -1,0 +1,11 @@
+{
+  "description": "SHA-256 of archived experiment evidence. Generated at packaging; not an original timestamp certificate.",
+  "packaged_date_beijing": "2026-11-17",
+  "sha256": {
+    "experiments/pilot/runs/full_official_prompt_deepseek-flash_max4096.jsonl": "c4db43ed8e7c113db279aaa3026e4a39ff1be07a94985b1e130f9efca89f2d3e",
+    "experiments/pilot/runs/full_official_eval/grades.jsonl": "46ecd2d4dc892c27fe07608bb460b90800a1b1698f953cef5e1eceae14e6483a",
+    "experiments/pilot/runs/full_official_eval/baseline_official.txt": "29f66889ee18e3827ae0070977f6b7b7e62d1e1f8d9105784f2b2b9238e8a7f7",
+    "experiments/pilot/runs/full_official_eval/structured_official.txt": "9be843f537a07f3bd615e53229b2b6974f47c4213a5b686418655771ba432915",
+    "experiments/pilot/runs/full_official_eval/summary.md": "3f6eeda5acc0d27a361bb02751bab4b8b482c2c3c0a8629d6e81daac090d46c0"
+  }
+}

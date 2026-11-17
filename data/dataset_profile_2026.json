@@ -1,0 +1,22 @@
+{
+  "rows": 500,
+  "db_counts": {
+    "california_schools": 49,
+    "card_games": 69,
+    "codebase_community": 31,
+    "debit_card_specializing": 14,
+    "european_football_2": 31,
+    "financial": 46,
+    "formula_1": 55,
+    "student_club": 37,
+    "superhero": 50,
+    "thrombosis_prediction": 86,
+    "toxicology": 32
+  },
+  "difficulty_counts": {
+    "challenging": 460,
+    "moderate": 32,
+    "simple": 8
+  },
+  "nonempty_evidence": 365
+}
