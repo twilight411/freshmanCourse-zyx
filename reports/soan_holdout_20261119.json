@@ -1,0 +1,686 @@
+{
+  "acceptance": {
+    "cell": "C1E1",
+    "max_harmful_reuse": 0,
+    "min_correct": 20,
+    "observed_correct": 24,
+    "observed_harmful_reuse": 0,
+    "observed_n": 24,
+    "passed": true,
+    "total": 24
+  },
+  "cells": {
+    "C0E0": {
+      "arms": {
+        "history_contract": {
+          "N": 24,
+          "accuracy": 0.5,
+          "answered": 24,
+          "correct": 12,
+          "coverage": 1.0,
+          "harmful_reuse": 12,
+          "questions": 0,
+          "scope_evidence_uses": 0
+        },
+        "history_fact": {
+          "N": 24,
+          "accuracy": 0.5,
+          "answered": 16,
+          "correct": 12,
+          "coverage": 0.6666666666666666,
+          "harmful_reuse": 0,
+          "questions": 0,
+          "scope_evidence_uses": 0
+        }
+      },
+      "by_phase": {
+        "before_effective": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 0.0,
+            "answered": 4,
+            "correct": 0,
+            "coverage": 1.0,
+            "harmful_reuse": 4,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          }
+        },
+        "exception": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 0.0,
+            "answered": 4,
+            "correct": 0,
+            "coverage": 1.0,
+            "harmful_reuse": 4,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          }
+        },
+        "missing_legacy": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 0.0,
+            "answered": 4,
+            "correct": 0,
+            "coverage": 1.0,
+            "harmful_reuse": 4,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 0.0,
+            "answered": 0,
+            "correct": 0,
+            "coverage": 0.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          }
+        },
+        "missing_revised": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 0.0,
+            "answered": 0,
+            "correct": 0,
+            "coverage": 0.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          }
+        },
+        "new_date": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 0.0,
+            "answered": 4,
+            "correct": 0,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          }
+        },
+        "same_facts": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          }
+        }
+      },
+      "clarify": false,
+      "early_scope": false,
+      "id": "C0E0",
+      "paired": {
+        "G": 8,
+        "H": 8,
+        "N": 24,
+        "net_gain": 0.0
+      }
+    },
+    "C0E1": {
+      "arms": {
+        "history_contract": {
+          "N": 24,
+          "accuracy": 0.6666666666666666,
+          "answered": 16,
+          "correct": 16,
+          "coverage": 0.6666666666666666,
+          "harmful_reuse": 0,
+          "questions": 0,
+          "scope_evidence_uses": 8
+        },
+        "history_fact": {
+          "N": 24,
+          "accuracy": 0.6666666666666666,
+          "answered": 16,
+          "correct": 16,
+          "coverage": 0.6666666666666666,
+          "harmful_reuse": 0,
+          "questions": 0,
+          "scope_evidence_uses": 8
+        }
+      },
+      "by_phase": {
+        "before_effective": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          }
+        },
+        "exception": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          }
+        },
+        "missing_legacy": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 0.0,
+            "answered": 0,
+            "correct": 0,
+            "coverage": 0.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 0.0,
+            "answered": 0,
+            "correct": 0,
+            "coverage": 0.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          }
+        },
+        "missing_revised": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 0.0,
+            "answered": 0,
+            "correct": 0,
+            "coverage": 0.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 0.0,
+            "answered": 0,
+            "correct": 0,
+            "coverage": 0.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          }
+        },
+        "new_date": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 4
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 4
+          }
+        },
+        "same_facts": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 4
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 4
+          }
+        }
+      },
+      "clarify": false,
+      "early_scope": true,
+      "id": "C0E1",
+      "paired": {
+        "G": 0,
+        "H": 0,
+        "N": 24,
+        "net_gain": 0.0
+      }
+    },
+    "C1E0": {
+      "arms": {
+        "history_contract": {
+          "N": 24,
+          "accuracy": 0.5,
+          "answered": 24,
+          "correct": 12,
+          "coverage": 1.0,
+          "harmful_reuse": 12,
+          "questions": 8,
+          "scope_evidence_uses": 0
+        },
+        "history_fact": {
+          "N": 24,
+          "accuracy": 0.8333333333333334,
+          "answered": 24,
+          "correct": 20,
+          "coverage": 1.0,
+          "harmful_reuse": 0,
+          "questions": 8,
+          "scope_evidence_uses": 0
+        }
+      },
+      "by_phase": {
+        "before_effective": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 0.0,
+            "answered": 4,
+            "correct": 0,
+            "coverage": 1.0,
+            "harmful_reuse": 4,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          }
+        },
+        "exception": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 0.0,
+            "answered": 4,
+            "correct": 0,
+            "coverage": 1.0,
+            "harmful_reuse": 4,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          }
+        },
+        "missing_legacy": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 0.0,
+            "answered": 4,
+            "correct": 0,
+            "coverage": 1.0,
+            "harmful_reuse": 4,
+            "questions": 4,
+            "scope_evidence_uses": 0
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 4,
+            "scope_evidence_uses": 0
+          }
+        },
+        "missing_revised": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 4,
+            "scope_evidence_uses": 0
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 4,
+            "scope_evidence_uses": 0
+          }
+        },
+        "new_date": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 0.0,
+            "answered": 4,
+            "correct": 0,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          }
+        },
+        "same_facts": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          }
+        }
+      },
+      "clarify": true,
+      "early_scope": false,
+      "id": "C1E0",
+      "paired": {
+        "G": 12,
+        "H": 4,
+        "N": 24,
+        "net_gain": 0.3333333333333333
+      }
+    },
+    "C1E1": {
+      "arms": {
+        "history_contract": {
+          "N": 24,
+          "accuracy": 1.0,
+          "answered": 24,
+          "correct": 24,
+          "coverage": 1.0,
+          "harmful_reuse": 0,
+          "questions": 8,
+          "scope_evidence_uses": 12
+        },
+        "history_fact": {
+          "N": 24,
+          "accuracy": 1.0,
+          "answered": 24,
+          "correct": 24,
+          "coverage": 1.0,
+          "harmful_reuse": 0,
+          "questions": 8,
+          "scope_evidence_uses": 12
+        }
+      },
+      "by_phase": {
+        "before_effective": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          }
+        },
+        "exception": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 0
+          }
+        },
+        "missing_legacy": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 4,
+            "scope_evidence_uses": 0
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 4,
+            "scope_evidence_uses": 0
+          }
+        },
+        "missing_revised": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 4,
+            "scope_evidence_uses": 4
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 4,
+            "scope_evidence_uses": 4
+          }
+        },
+        "new_date": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 4
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 4
+          }
+        },
+        "same_facts": {
+          "history_contract": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 4
+          },
+          "history_fact": {
+            "N": 4,
+            "accuracy": 1.0,
+            "answered": 4,
+            "correct": 4,
+            "coverage": 1.0,
+            "harmful_reuse": 0,
+            "questions": 0,
+            "scope_evidence_uses": 4
+          }
+        }
+      },
+      "clarify": true,
+      "early_scope": true,
+      "id": "C1E1",
+      "paired": {
+        "G": 0,
+        "H": 0,
+        "N": 24,
+        "net_gain": 0.0
+      }
+    }
+  },
+  "primary_pair": [
+    "history_fact",
+    "history_contract"
+  ]
+}

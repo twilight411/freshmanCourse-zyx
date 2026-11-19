@@ -1,0 +1,8 @@
+{
+  "source": "用户提供的独立预写实验裁决；由冒烟调度器按阶段露出",
+  "adjudications": {
+    "F1": {"kind": "case", "value_cents": 11000, "scope": {"task_id": "F1"}},
+    "F2_case": {"kind": "case", "value_cents": 11000, "scope": {"task_id": "F2"}},
+    "F2_rule": {"kind": "rule", "candidate": "charge_on_order", "scope": {"version": "v2", "channel": "retail"}, "effective_time": "2026-11-19 Asia/Shanghai", "adjudicator": "用户预写实验条件"}
+  }
+}

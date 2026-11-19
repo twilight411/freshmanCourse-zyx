@@ -1,0 +1,65 @@
+% Preamble: \usepackage{booktabs}
+\begin{table*}[t]
+\centering
+\caption{BIRD-SQL execution accuracy (EX, \%).}
+\begin{tabular}{llrrrrrr}
+\toprule
+ & & \multicolumn{2}{c}{Dev 2024 (1,534)} & \multicolumn{1}{c}{Revised Dev 2025 (1,534)} & \multicolumn{3}{c}{Mini Dev 2026 (500)} \\
+Model & Thinking & SQLite & MySQL\textsuperscript{\ddag} & SQLite & SQLite & MySQL & PostgreSQL \\
+\midrule
+DeepSeek Flash & High & 66.10 & 63.23 & 66.49\textsuperscript{\dag} & 65.40 & 66.60 & 68.20 \\
+DeepSeek Flash & Off & -- & -- & -- & 40.00 & -- & -- \\
+Qwen Flash & Off & 67.34\textsuperscript{\dag} & -- & -- & -- & -- & -- \\
+Qwen 3.8 Flash & Off & 65.65\textsuperscript{\dag} & 63.69 & 65.25\textsuperscript{\dag} & 31.40 & 30.20 & 32.40 \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+{\footnotesize EX uses the full split denominator. \textsuperscript{\ddag}Local MySQL port. \textsuperscript{\dag}Reference failures: Dev 2024 SQLite (Qwen Flash 1, Qwen 3.8 Flash 2); Revised Dev 2025 SQLite (DeepSeek Flash 5, Qwen 3.8 Flash 5). A dash indicates an unevaluated combination.\par}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\caption{Spider 2.0 Lite, local SQLite subset.}
+\begin{tabular}{llrr}
+\toprule
+Model & Endpoint / thinking & Correct / total & EX (\%) \\
+\midrule
+DeepSeek Flash & Official / High & 69/135 & 51.11 \\
+DeepSeek Flash & WHU / Off & 59/135 & 43.70 \\
+Qwen Flash & WHU / Off & 37/135 & 27.41 \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+{\footnotesize The local SQLite subset contains 135 tasks.\par}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\caption{Spider 2.0 DBT, local DuckDB workflows.}
+\begin{tabular}{lrrr}
+\toprule
+Model & Successes / scored & No valid artifact & SR (\%) \\
+\midrule
+DeepSeek Flash & 4/64 & 46 & 6.25 \\
+Qwen 3.8 Flash & 6/64 & 44 & 9.38 \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+{\footnotesize 4 of 68 tasks lack reference databases. No valid artifact counts as failure on evaluable tasks.\par}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\caption{BEAVER stage snapshot, execution accuracy and graded coverage.}
+\begin{tabular}{lrrrr}
+\toprule
+Model & DW Real & Neutron & Nova & DW \\
+\midrule
+deepseek-flash & 10.92 (121/121) & 9.19 (1017/1017) & 12.15 (1053/1053) & 1.77 (5786/5787) \\
+qwen-flash & 8.33 (121/121) & 7.53 (1017/1017) & 9.88 (1053/1053) & 3.49 (1583/5787) \\
+qwen3.5-flash & -- & 0.00 (1/1) & 5.12 (484/484) & 2.33 (4669/5687) \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+{\footnotesize Cells report EX (\%) and graded/target counts for each run. EX uses the sum of correct and wrong results. Targets vary with the run scope.\par}
+\end{table*}

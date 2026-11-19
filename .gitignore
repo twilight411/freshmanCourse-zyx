@@ -15,3 +15,5 @@ settings.xml
 settings.local.xml
 maven-settings.local.xml
 *.part
+.beaver_full/
+beaver_full_run/

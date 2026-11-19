@@ -1,0 +1,31 @@
+﻿benchmark,split,setting,metric,correct,denominator,percent,scored,target,reference_issue,execution_unresolved,no_answer,stage
+BIRD,full_sqlite,DeepSeek Flash · 思考 high,EX,1014,1534,66.1,1534,1534,0,0,0,complete
+BIRD,full_sqlite,Qwen Flash · 关闭思考,EX,1033,1534,67.34,1534,1534,1,0,0,complete
+BIRD,full_sqlite,Qwen 3.8 Flash · 关闭思考,EX,1007,1534,65.65,1534,1534,2,0,0,complete
+BIRD,full_mysql,DeepSeek Flash · 思考 high,EX,970,1534,63.23,1534,1534,0,0,0,complete
+BIRD,full_mysql,Qwen 3.8 Flash · 关闭思考,EX,977,1534,63.69,1534,1534,0,0,0,complete
+BIRD,revised_dev_2025,DeepSeek Flash · 思考 high,EX,1020,1534,66.49,1534,1534,5,0,0,complete
+BIRD,revised_dev_2025,Qwen 3.8 Flash · 关闭思考,EX,1001,1534,65.25,1534,1534,5,0,0,complete
+BIRD,mini_sqlite,DeepSeek Flash · 关闭思考,EX,200,500,40.0,500,500,0,0,0,complete
+BIRD,mini_sqlite,DeepSeek Flash · 思考 high,EX,327,500,65.4,500,500,0,0,0,complete
+BIRD,mini_sqlite,Qwen 3.8 Flash · 关闭思考,EX,157,500,31.4,500,500,0,0,0,complete
+BIRD,mini_mysql,DeepSeek Flash · 思考 high,EX,333,500,66.6,500,500,0,0,0,complete
+BIRD,mini_mysql,Qwen 3.8 Flash · 关闭思考,EX,151,500,30.2,500,500,0,0,0,complete
+BIRD,mini_postgresql,DeepSeek Flash · 思考 high（Thingo）,EX,341,500,68.2,500,500,0,0,0,complete
+BIRD,mini_postgresql,Qwen 3.8 Flash · 关闭思考,EX,162,500,32.4,500,500,0,0,0,complete
+Spider 2.0,lite_local,DeepSeek Flash · 官方接口思考 high,EX,69,135,51.11,135,135,0,0,0,complete
+Spider 2.0,lite_local,DeepSeek Flash · 武大接口非思考,EX,59,135,43.7,135,135,0,0,0,complete
+Spider 2.0,lite_local,Qwen Flash · 武大接口非思考,EX,37,135,27.41,135,135,0,0,0,complete
+Spider 2.0,dbt,Qwen 3.8 Flash,SR,6,64,9.38,68,68,0,0,44,complete
+Spider 2.0,dbt,DeepSeek Flash,SR,4,64,6.25,68,68,0,0,46,complete
+BEAVER,dw_real,deepseek-flash,EX,13,119,10.92,121,121,1,1,0,covered
+BEAVER,neutron,deepseek-flash,EX,93,1012,9.19,1017,1017,4,1,0,covered
+BEAVER,nova,deepseek-flash,EX,126,1037,12.15,1053,1053,14,2,0,covered
+BEAVER,dw,deepseek-flash,EX,101,5721,1.77,5786,5787,63,2,0,partial
+BEAVER,dw_real,qwen-flash,EX,10,120,8.33,121,121,1,0,0,covered
+BEAVER,neutron,qwen-flash,EX,76,1009,7.53,1017,1017,8,0,0,covered
+BEAVER,nova,qwen-flash,EX,103,1042,9.88,1053,1053,10,1,0,covered
+BEAVER,dw,qwen-flash,EX,55,1576,3.49,1583,5787,3,4,0,partial
+BEAVER,neutron,qwen3.5-flash,EX,0,1,0.0,1,1,0,0,0,covered
+BEAVER,nova,qwen3.5-flash,EX,24,469,5.12,484,484,13,2,0,covered
+BEAVER,dw,qwen3.5-flash,EX,107,4589,2.33,4669,5687,54,26,0,partial

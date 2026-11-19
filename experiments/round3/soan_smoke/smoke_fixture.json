@@ -1,0 +1,12 @@
+{
+  "source": "用户提供的离线实验条件；裁决在冒烟前预写",
+  "unit": "integer cents",
+  "cases": [
+    {"id": "F0", "version": "v2", "channel": "retail", "status": "pending", "subtotal_cents": 10000, "shipping_cents": 0},
+    {"id": "F1", "version": "v2", "channel": "retail", "status": "shipped", "subtotal_cents": 10000, "shipping_cents": 1000},
+    {"id": "F2", "version": "v2", "channel": "retail", "status": "pending", "subtotal_cents": 10000, "shipping_cents": 1000},
+    {"id": "TRANSFER", "version": "v2", "channel": "retail", "status": "pending", "subtotal_cents": 20000, "shipping_cents": 300},
+    {"id": "OUT_OF_SCOPE", "version": "v2", "channel": "wholesale", "status": "pending", "subtotal_cents": 20000, "shipping_cents": 300},
+    {"id": "HISTORICAL", "version": "v1", "channel": "retail", "status": "pending", "subtotal_cents": 20000, "shipping_cents": 300}
+  ]
+}
